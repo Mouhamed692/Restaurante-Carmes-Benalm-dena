@@ -1,8 +1,3 @@
-/* ==========================================================================
-   Restaurante Carmesí – Haute Cuisine | Benalmádena Pueblo
-   Theme: "Carmesí & Gold" (Obsidian #0A0A0A, Carmesí #6E1A24, Gold #D4AF37)
-   Pure Vanilla CSS – 100% Standalone & Responsive
-   ========================================================================== */
 
 :root {
   --bg-primary: #0A0A0A;
@@ -203,6 +198,19 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   }
 }
 
+/* Mobile Actions Wrapper (Masqué sur Desktop) */
+.mobile-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+@media (min-width: 1024px) {
+  .mobile-actions {
+    display: none;
+  }
+}
+
 /* Language Switcher */
 .lang-switcher {
   display: flex;
@@ -297,12 +305,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   color: var(--text-primary);
   cursor: pointer;
   padding: 0.5rem;
-}
-
-@media (min-width: 1024px) {
-  .mobile-toggle {
-    display: none;
-  }
 }
 
 .mobile-menu-drawer {
@@ -593,10 +595,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   border: 1px solid var(--gold-border);
   overflow: hidden;
   background-color: var(--bg-card);
-}
-
-.photo-card.stagger {
-  margin-top: 0;
 }
 
 @media (min-width: 640px) {
@@ -1050,7 +1048,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   font-weight: 500;
 }
 
-/* Minimalist Underline Form */
+/* Form */
 .reservation-form {
   background: rgba(18, 16, 17, 0.7);
   border: 1px solid var(--border-subtle);
