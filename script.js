@@ -1,7 +1,3 @@
-/**
- * Restaurante Carmesí – Haute Cuisine | Benalmádena Pueblo
- * Pure Vanilla JavaScript (No bundler or framework required)
- */
 
 (function () {
   'use strict';
@@ -9,6 +5,10 @@
   const WHATSAPP_NUMBER = '34623534494';
   let currentLang = 'fr';
   let currentCategory = 'all';
+
+  // State of the form
+  let selectedTime = '20:30';
+  let selectedSeating = 'terrace';
 
   // Data: Dishes
   const DISHES = [
@@ -170,7 +170,7 @@
       pairing: {
         fr: 'Ribera del Duero Reserva ou Pauillac',
         en: 'Ribera del Duero Reserva or Pauillac',
-        es: 'Ribera del Duero Reserva o Pauillac',
+        es: 'Ribera del Duero Reserva or Pauillac',
       },
     },
     {
@@ -191,7 +191,7 @@
       description: {
         fr: 'Magret de canard rosé à la perfection, peau laquée au miel de fleurs d’oranger, déclinaison de légumes confits et croquette croustillante.',
         en: 'Pink-roasted duck breast glazed with orange blossom honey, served with confit seasonal vegetables and crisp croquette.',
-        es: 'Magret de pato rosado a la perfección, piel lacada con miel de azahar, verduras confitadas y croqueta crujiente.',
+        es: 'Magret de pato rosado a la perfection, piel lacada con miel de azahar, verduras confitadas y croqueta crujiente.',
       },
       pairing: {
         fr: 'Priorat DOCa ou Châteauneuf-du-Pape',
@@ -304,7 +304,67 @@
       pairing: {
         fr: 'Banyuls Rimage ou Cognac XO',
         en: 'Banyuls Rimage or Cognac XO',
-        es: 'Banyuls Rimage o Cognac XO',
+        es: 'Banyuls Rimage or Cognac XO',
+      },
+    },
+  ];
+
+  // Data: Wine Cellar
+  const WINES = [
+    {
+      id: 'wine-1',
+      region: {
+        fr: 'DOCa Rioja · España · 2016 · Rouge',
+        en: 'DOCa Rioja · Spain · 2016 · Red',
+        es: 'DOCa Rioja · España · 2016 · Tinto',
+      },
+      name: 'Marqués de Murrieta Castillo Ygay / Reserva',
+      notes: {
+        fr: 'Notes de cerise noire, cèdre, truffe et épices douces. Idéal avec le Tournedos aux Morilles.',
+        en: 'Notes of black cherry, cedar, truffle, and sweet spices. Ideal pairing with Beef Tenderloin.',
+        es: 'Notas de cereza negra, cedro, trufa y especias dulces. Maridaje ideal con el Tournedó de Solomillo.',
+      },
+    },
+    {
+      id: 'wine-2',
+      region: {
+        fr: 'DO Ribera del Duero · España · 2019 · Rouge',
+        en: 'DO Ribera del Duero · Spain · 2019 · Red',
+        es: 'DO Ribera del Duero · España · 2019 · Tinto',
+      },
+      name: 'Pago de Carraovejas Crianza',
+      notes: {
+        fr: 'Velouté, profond et structuré, aux arômes de mûre confite et cacao. Sublime le Magret de Canard.',
+        en: 'Velvety, deep and structured, with aromas of candied blackberry and cacao. Sublimes Roasted Duck.',
+        es: 'Aterciopelado, profundo y estructurado, con aromas a mora confitada y cacao. Sublime con el Magret de Pato.',
+      },
+    },
+    {
+      id: 'wine-3',
+      region: {
+        fr: 'Bourgogne · France · 2021 · Blanc (100% Chardonnay)',
+        en: 'Burgundy · France · 2021 · White (100% Chardonnay)',
+        es: 'Borgoña · Francia · 2021 · Blanco (100% Chardonnay)',
+      },
+      name: 'Domaine William Fèvre Chablis 1er Cru',
+      notes: {
+        fr: 'Minéralité cristalline, fleurs blanches et agrumes frais. Accompagne la Pêche de la Baie de Málaga.',
+        en: 'Crystalline minerality, white flowers, and crisp citrus. Accompanies the Catch of the Day.',
+        es: 'Mineralidad cristalina, flores blancas y cítricos frescos. Acompaña la Pesca del Día de la Bahía.',
+      },
+    },
+    {
+      id: 'wine-4',
+      region: {
+        fr: 'Champagne · France · Brut Réserve',
+        en: 'Champagne · France · Brut Réserve',
+        es: 'Champagne · Francia · Brut Réserve',
+      },
+      name: 'Billecart-Salmon Brut Réserve',
+      notes: {
+        fr: 'Bulle aérienne, poire fraîche et brioche fine. L’ouverture parfaite sur notre terrasse avec vue mer.',
+        en: 'Airy bubbles, fresh pear, and fine brioche. The perfect opening on our sea-view terrace.',
+        es: 'Burbuja aérea, pera fresca y brioche delicado. El inicio perfecto en nuestra terraza con vistas.',
       },
     },
   ];
@@ -568,9 +628,13 @@
     },
   };
 
-  // State of the form
-  let selectedTime = '20:30';
-  let selectedSeating = 'terrace';
+  // Helper: Local date formatted as YYYY-MM-DD
+  function getLocalDateString(d) {
+    const year = d.getFullYear();
+    const month = String(d.getMonth() + 1).padStart(2, '0');
+    const day = String(d.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  }
 
   // Initialization
   document.addEventListener('DOMContentLoaded', () => {
@@ -579,7 +643,6 @@
     initLanguageSwitcher();
     initMenuFilter();
     filterMenuDishes();
-    updateMenuTexts(currentLang);
     initReservationForm();
     initModals();
     applyLanguage(currentLang);
@@ -653,8 +716,14 @@
     // Animate hero title words
     renderHeroTitle(lang);
 
-    // Update localized dish names and pairings on static HTML cards
+    // Update localized dish names and pairings
     updateMenuTexts(lang);
+
+    // Update wine cellar notes
+    updateWineTexts(lang);
+
+    // Update guests dropdown labels
+    updateGuestsSelect(lang);
 
     // Update live form summary
     updateFormSummary();
@@ -674,7 +743,7 @@
     });
   }
 
-  // Menu filtering operating on static HTML elements
+  // Menu filtering
   function initMenuFilter() {
     const filterBtns = document.querySelectorAll('.filter-btn');
     filterBtns.forEach(btn => {
@@ -719,17 +788,49 @@
     });
   }
 
+  function updateWineTexts(lang) {
+    document.querySelectorAll('.wine-item').forEach(item => {
+      const wineId = item.dataset.wineId;
+      const wine = WINES.find(w => w.id === wineId);
+      if (!wine) return;
+
+      const regEl = item.querySelector('[data-wine-field="region"]');
+      if (regEl) regEl.textContent = wine.region[lang];
+
+      const notesEl = item.querySelector('[data-wine-field="notes"]');
+      if (notesEl) notesEl.textContent = wine.notes[lang];
+    });
+  }
+
+  function updateGuestsSelect(lang) {
+    const select = document.getElementById('res-guests');
+    if (!select) return;
+    const labels = {
+      fr: (n) => `${n} ${n > 1 ? 'convives' : 'convive'}`,
+      en: (n) => `${n} ${n > 1 ? 'guests' : 'guest'}`,
+      es: (n) => `${n} ${n > 1 ? 'comensales' : 'comensal'}`,
+    };
+    const formatFn = labels[lang] || labels.fr;
+    Array.from(select.options).forEach(opt => {
+      const num = parseInt(opt.value, 10);
+      opt.textContent = formatFn(num);
+    });
+  }
+
   // Reservation Form & WhatsApp Integration
   function initReservationForm() {
     const dateInput = document.getElementById('res-date');
     if (dateInput) {
       const today = new Date();
-      // If Monday, advance to Tuesday
+      // If Monday (closed), default selection to Tuesday
       if (today.getDay() === 1) {
         today.setDate(today.getDate() + 1);
       }
-      dateInput.value = today.toISOString().split('T')[0];
-      dateInput.min = today.toISOString().split('T')[0];
+      const initialDate = getLocalDateString(today);
+      const minDate = getLocalDateString(new Date());
+
+      dateInput.value = initialDate;
+      dateInput.min = minDate;
       dateInput.addEventListener('change', updateFormSummary);
     }
 
@@ -781,13 +882,19 @@
     const t = I18N[currentLang];
 
     const dateVal = document.getElementById('res-date')?.value || '';
-    const guestsVal = document.getElementById('res-guests')?.value || '2';
+    const guestsVal = parseInt(document.getElementById('res-guests')?.value || '2', 10);
     const nameVal = document.getElementById('res-name')?.value || '';
     const seatingText = selectedSeating === 'terrace' ? t.seat_terrace : t.seat_interior;
 
+    const guestWord = {
+      fr: guestsVal > 1 ? 'convives' : 'convive',
+      en: guestsVal > 1 ? 'guests' : 'guest',
+      es: guestsVal > 1 ? 'comensales' : 'comensal',
+    }[currentLang] || 'convives';
+
     summaryEl.innerHTML = `
       <div><strong>${t.form_date}:</strong> ${dateVal} · ${selectedTime}</div>
-      <div><strong>${t.form_guests}:</strong> ${guestsVal} ${guestsVal > 1 ? (currentLang === 'fr' ? 'convives' : 'guests') : (currentLang === 'fr' ? 'convive' : 'guest')}</div>
+      <div><strong>${t.form_guests}:</strong> ${guestsVal} ${guestWord}</div>
       <div><strong>${t.form_seating}:</strong> ${seatingText}</div>
       ${nameVal ? `<div><strong>${t.form_name}:</strong> ${nameVal}</div>` : ''}
     `;
@@ -846,7 +953,7 @@
     window.open(waUrl, '_blank', 'noopener,noreferrer');
   }
 
-  // Modals
+  // Modals & Keyboard Accessibility
   function initModals() {
     const modal = document.getElementById('legal-modal');
     const closeBtn = document.querySelector('.modal-close');
@@ -874,6 +981,13 @@
         if (e.target === modal) modal.classList.remove('open');
       });
     }
+
+    // Close modal on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal && modal.classList.contains('open')) {
+        modal.classList.remove('open');
+      }
+    });
   }
 
 })();
