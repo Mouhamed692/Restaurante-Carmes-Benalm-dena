@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="fr" class="scroll-smooth">
   <head>
@@ -36,10 +37,10 @@
       rel="stylesheet"
     />
 
-    <!-- Pure Standalone Stylesheet -->
+    <!-- Stylesheet -->
     <link rel="stylesheet" href="./style.css" />
 
-    <!-- Pure Standalone Script -->
+    <!-- Script -->
     <script type="module" src="./script.js"></script>
 
     <!-- Schema.org Fine Dining Restaurant Structured Data -->
@@ -94,7 +95,7 @@
           <a href="#acces" class="nav-link" data-i18n="nav_access">Accès</a>
         </nav>
 
-        <!-- Right: Language Switcher & Gold CTA -->
+        <!-- Right: Desktop Language Switcher & Gold CTA -->
         <div class="header-actions">
           <div class="lang-switcher" role="group" aria-label="Language selector">
             <button type="button" class="lang-btn active" data-lang="fr">FR</button>
@@ -107,9 +108,9 @@
           <a href="#reservations" class="btn btn-gold" data-i18n="nav_reserve">Réserver une Table</a>
         </div>
 
-        <!-- Mobile Toggle Button -->
-        <div style="display: flex; align-items: center; gap: 0.75rem;">
-          <div class="lang-switcher" style="display: flex;" role="group" aria-label="Language selector">
+        <!-- Mobile Actions (Masqué sur Desktop via CSS) -->
+        <div class="mobile-actions">
+          <div class="lang-switcher" role="group" aria-label="Language selector mobile">
             <button type="button" class="lang-btn active" data-lang="fr">FR</button>
             <span>/</span>
             <button type="button" class="lang-btn" data-lang="en">EN</button>
@@ -134,7 +135,7 @@
       <a href="#histoire" class="mobile-nav-link" data-i18n="nav_story">L'Histoire</a>
       <a href="#carte" class="mobile-nav-link" data-i18n="nav_menu">La Carte</a>
       <a href="#cave" class="mobile-nav-link" data-i18n="nav_cellar">La Cave</a>
-      <a href="#reservations" class="mobile-nav-link" data-i18n="nav_reserve">Réservations</a>
+      <a href="#reservations" class="mobile-nav-link" data-i18n="nav_reserve">Réserver une Table</a>
       <a href="#acces" class="mobile-nav-link" data-i18n="nav_access">Accès</a>
       <a href="#reservations" class="btn btn-gold" style="margin-top: 1rem;" data-i18n="nav_reserve">Réserver une Table</a>
     </div>
@@ -186,8 +187,8 @@
 
             <!-- Call to Actions -->
             <div class="hero-cta-group">
-              <a href="#reservations" class="btn btn-gold" data-i18n="cta_reserve">
-                <span>Réserver via Formulaire</span>
+              <a href="#reservations" class="btn btn-gold">
+                <span data-i18n="cta_reserve">Réserver via Formulaire</span>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <line x1="5" y1="12" x2="19" y2="12"></line>
                   <polyline points="12 5 19 12 12 19"></polyline>
@@ -222,7 +223,7 @@
       <section id="histoire" class="section">
         <div class="container">
           <div class="story-grid">
-            <!-- Left: Editorial Prose -->
+            <!-- Editorial Prose -->
             <div>
               <div class="section-kicker" data-i18n="story_kicker">L'Expérience & Les Hôtes</div>
               <h2 class="section-title" data-i18n="story_title">
@@ -247,7 +248,7 @@
               </div>
             </div>
 
-            <!-- Right: Photos -->
+            <!-- Photos -->
             <div class="story-photos">
               <div class="photo-card">
                 <img
@@ -307,7 +308,7 @@
             <button type="button" class="filter-btn" data-category="desserts" data-i18n="tab_desserts">Desserts</button>
           </div>
 
-          <!-- Menu Dishes Grid directly in HTML -->
+          <!-- Menu Dishes Grid -->
           <div id="menu-dishes-container">
             <!-- Entrées -->
             <div class="category-group" data-group-category="starters">
@@ -622,11 +623,11 @@
 
               <div class="wine-list">
                 <!-- Wine 1 -->
-                <div class="wine-item">
+                <div class="wine-item" data-wine-id="wine-1">
                   <div>
-                    <div class="wine-region">DOCa Rioja · España · 2016 · Rouge</div>
-                    <h3 class="wine-name">Marqués de Murrieta Castillo Ygay / Reserva</h3>
-                    <p class="wine-notes">Notes de cerise noire, cèdre, truffe et épices douces. Idéal avec le Tournedos aux Morilles.</p>
+                    <div class="wine-region" data-wine-field="region">DOCa Rioja · España · 2016 · Rouge</div>
+                    <h3 class="wine-name" data-wine-field="name">Marqués de Murrieta Castillo Ygay / Reserva</h3>
+                    <p class="wine-notes" data-wine-field="notes">Notes de cerise noire, cèdre, truffe et épices douces. Idéal avec le Tournedos aux Morilles.</p>
                   </div>
                   <div class="wine-prices">
                     <div>Bouteille <span>68 €</span></div>
@@ -634,11 +635,11 @@
                 </div>
 
                 <!-- Wine 2 -->
-                <div class="wine-item">
+                <div class="wine-item" data-wine-id="wine-2">
                   <div>
-                    <div class="wine-region">DO Ribera del Duero · España · 2019 · Rouge</div>
-                    <h3 class="wine-name">Pago de Carraovejas Crianza</h3>
-                    <p class="wine-notes">Velouté, profond et structuré, aux arômes de mûre confite et cacao. Sublime le Magret de Canard.</p>
+                    <div class="wine-region" data-wine-field="region">DO Ribera del Duero · España · 2019 · Rouge</div>
+                    <h3 class="wine-name" data-wine-field="name">Pago de Carraovejas Crianza</h3>
+                    <p class="wine-notes" data-wine-field="notes">Velouté, profond et structuré, aux arômes de mûre confite et cacao. Sublime le Magret de Canard.</p>
                   </div>
                   <div class="wine-prices">
                     <div>Verre <span>14 €</span></div>
@@ -647,11 +648,11 @@
                 </div>
 
                 <!-- Wine 3 -->
-                <div class="wine-item">
+                <div class="wine-item" data-wine-id="wine-3">
                   <div>
-                    <div class="wine-region">Bourgogne · France · 2021 · Blanc (100% Chardonnay)</div>
-                    <h3 class="wine-name">Domaine William Fèvre Chablis 1er Cru</h3>
-                    <p class="wine-notes">Minéralité cristalline, fleurs blanches et agrumes frais. Accompagne la Pêche de la Baie de Málaga.</p>
+                    <div class="wine-region" data-wine-field="region">Bourgogne · France · 2021 · Blanc (100% Chardonnay)</div>
+                    <h3 class="wine-name" data-wine-field="name">Domaine William Fèvre Chablis 1er Cru</h3>
+                    <p class="wine-notes" data-wine-field="notes">Minéralité cristalline, fleurs blanches et agrumes frais. Accompagne la Pêche de la Baie de Málaga.</p>
                   </div>
                   <div class="wine-prices">
                     <div>Verre <span>15 €</span></div>
@@ -660,11 +661,11 @@
                 </div>
 
                 <!-- Wine 4 -->
-                <div class="wine-item">
+                <div class="wine-item" data-wine-id="wine-4">
                   <div>
-                    <div class="wine-region">Champagne · France · Brut Réserve</div>
-                    <h3 class="wine-name">Billecart-Salmon Brut Réserve</h3>
-                    <p class="wine-notes">Bulle aérienne, poire fraîche et brioche fine. L’ouverture parfaite sur notre terrasse avec vue mer.</p>
+                    <div class="wine-region" data-wine-field="region">Champagne · France · Brut Réserve</div>
+                    <h3 class="wine-name" data-wine-field="name">Billecart-Salmon Brut Réserve</h3>
+                    <p class="wine-notes" data-wine-field="notes">Bulle aérienne, poire fraîche et brioche fine. L’ouverture parfaite sur notre terrasse avec vue mer.</p>
                   </div>
                   <div class="wine-prices">
                     <div>Coupe <span>16 €</span></div>
@@ -790,12 +791,12 @@
 
               <!-- Success Box -->
               <div class="form-success-box" id="form-success-box">
-                <div style="color: var(--whatsapp); font-weight: 600; display: flex; align-items: center; gap: 0.5rem;" data-i18n="succ_title">
+                <div style="color: var(--whatsapp); font-weight: 600; display: flex; align-items: center; gap: 0.5rem;">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
                     <polyline points="22 4 12 14.01 9 11.01"></polyline>
                   </svg>
-                  Votre demande est prête sur WhatsApp
+                  <span data-i18n="succ_title">Votre demande est prête sur WhatsApp</span>
                 </div>
                 <p style="font-size: 0.8rem; color: var(--text-muted);" data-i18n="succ_desc">
                   Si la fenêtre WhatsApp ne s’est pas ouverte automatiquement, cliquez sur le bouton ci-dessous :
@@ -874,7 +875,7 @@
               </a>
             </div>
 
-            <!-- Right Architectural Map Card -->
+            <!-- Architectural Map Card -->
             <div class="map-card">
               <div class="map-card-pattern"></div>
               <div style="font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold-champagne); z-index: 2;">
