@@ -1,3 +1,7 @@
+/**
+ * Restaurante Carmesí – Haute Cuisine | Benalmádena Pueblo
+ * Pure Vanilla JavaScript (No bundler or framework required)
+ */
 
 (function () {
   'use strict';
@@ -6,18 +10,14 @@
   let currentLang = 'fr';
   let currentCategory = 'all';
 
-  // State of the form
-  let selectedTime = '20:30';
-  let selectedSeating = 'terrace';
-
-  // Data: Dishes
+  // Data: Dishes avec photos directes en format .jpg
   const DISHES = [
     // 1. Entrées
     {
       id: 'tartare',
       category: 'starters',
       price: 22,
-      image: './assets/aistudio/image_7240eba3.jpg',
+      image: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1200&q=85&fm=jpg',
       name: {
         fr: 'Steak Tartare au Couteau',
         en: 'Hand-Cut Beef Tartare',
@@ -43,7 +43,7 @@
       id: 'soupe',
       category: 'starters',
       price: 19,
-      image: './assets/aistudio/image_8636c49b.jpg',
+      image: 'https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=1200&q=85&fm=jpg',
       name: {
         fr: 'Soupe de Poissons & Crustacés de Méditerranée',
         en: 'Mediterranean Fish & Shellfish Velouté',
@@ -69,7 +69,7 @@
       id: 'scallops',
       category: 'starters',
       price: 24,
-      image: './assets/aistudio/image_885cb48f.jpg',
+      image: 'https://images.unsplash.com/photo-1532550907401-a500c9a57435?auto=format&fit=crop&w=1200&q=85&fm=jpg',
       name: {
         fr: 'Noix de Saint-Jacques Poêlées',
         en: 'Pan-Seared Scallops',
@@ -97,7 +97,7 @@
       id: 'catch',
       category: 'sea',
       price: 32,
-      image: './assets/aistudio/image_dc103544.jpg',
+      image: 'https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=1200&q=85&fm=jpg',
       name: {
         fr: 'Catch of the Day — Pêche de la Baie de Málaga',
         en: 'Catch of the Day — Málaga Bay Wild Fish',
@@ -123,7 +123,7 @@
       id: 'salmon',
       category: 'sea',
       price: 29,
-      image: './assets/aistudio/image_00afa11f.jpg',
+      image: 'https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=1200&q=85&fm=jpg',
       name: {
         fr: 'Pavé de Saumon Croustillant',
         en: 'Crispy-Skin Salmon Fillet',
@@ -142,7 +142,7 @@
       pairing: {
         fr: 'Pouilly-Fumé ou Rosado de Navarra',
         en: 'Pouilly-Fumé or Rosado de Navarra',
-        es: 'Pouilly-Fumé o Rosado de Navarra',
+        es: 'Pouilly-Fumé or Rosado de Navarra',
       },
     },
 
@@ -151,7 +151,7 @@
       id: 'tournedos',
       category: 'land',
       price: 38,
-      image: './assets/aistudio/image_b0a7f51f.jpg',
+      image: 'https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&w=1200&q=85&fm=jpg',
       name: {
         fr: 'Tournedos de Bœuf aux Morilles',
         en: 'Beef Tenderloin with Morel Jus',
@@ -177,7 +177,7 @@
       id: 'duck',
       category: 'land',
       price: 31,
-      image: './assets/aistudio/image_bbd7787f.jpg',
+      image: 'https://images.unsplash.com/photo-1514944298352-78d12224c781?auto=format&fit=crop&w=1200&q=85&fm=jpg',
       name: {
         fr: 'Magret de Canard Rôti',
         en: 'Roasted Duck Breast',
@@ -191,7 +191,7 @@
       description: {
         fr: 'Magret de canard rosé à la perfection, peau laquée au miel de fleurs d’oranger, déclinaison de légumes confits et croquette croustillante.',
         en: 'Pink-roasted duck breast glazed with orange blossom honey, served with confit seasonal vegetables and crisp croquette.',
-        es: 'Magret de pato rosado a la perfection, piel lacada con miel de azahar, verduras confitadas y croqueta crujiente.',
+        es: 'Magret de pato rosado a la perfección, piel lacada con miel de azahar, verduras confitadas y croqueta crujiente.',
       },
       pairing: {
         fr: 'Priorat DOCa ou Châteauneuf-du-Pape',
@@ -205,7 +205,7 @@
       id: 'asparagus',
       category: 'sides',
       price: 11,
-      image: './assets/aistudio/image_98c1f1ad.jpg',
+      image: 'https://images.unsplash.com/photo-1515471204630-f1c5c00e1215?auto=format&fit=crop&w=1200&q=85&fm=jpg',
       name: {
         fr: 'Asperges Blanches & Vertes de Saison',
         en: 'Seasonal White & Green Asparagus',
@@ -231,7 +231,7 @@
       id: 'croquette',
       category: 'sides',
       price: 10,
-      image: './assets/aistudio/image_484b890e.jpg',
+      image: 'https://images.unsplash.com/photo-1541529086526-db283c563270?auto=format&fit=crop&w=1200&q=85&fm=jpg',
       name: {
         fr: 'Croquette Croustillante & Mousseline Truffée',
         en: 'Crisp Artisan Croquette & Truffle Mousseline',
@@ -259,7 +259,7 @@
       id: 'suzette',
       category: 'desserts',
       price: 16,
-      image: './assets/aistudio/image_b06af0cc.jpg',
+      image: 'https://images.unsplash.com/photo-1519676867240-f03562e64548?auto=format&fit=crop&w=1200&q=85&fm=jpg',
       name: {
         fr: 'Crêpes Suzette Flambées Traditionnelles',
         en: 'Traditional Flambéed Crêpes Suzette',
@@ -278,14 +278,14 @@
       pairing: {
         fr: 'Pedro Ximénez ou Sauternes',
         en: 'Pedro Ximénez or Sauternes',
-        es: 'Pedro Ximénez o Sauternes',
+        es: 'Pedro Ximénez or Sauternes',
       },
     },
     {
       id: 'moelleux',
       category: 'desserts',
       price: 15,
-      image: './assets/aistudio/image_b9b380f4.jpg',
+      image: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=1200&q=85&fm=jpg',
       name: {
         fr: 'Moelleux au Chocolat Grand Cru',
         en: 'Grand Cru Dark Chocolate Fondant',
@@ -305,66 +305,6 @@
         fr: 'Banyuls Rimage ou Cognac XO',
         en: 'Banyuls Rimage or Cognac XO',
         es: 'Banyuls Rimage or Cognac XO',
-      },
-    },
-  ];
-
-  // Data: Wine Cellar
-  const WINES = [
-    {
-      id: 'wine-1',
-      region: {
-        fr: 'DOCa Rioja · España · 2016 · Rouge',
-        en: 'DOCa Rioja · Spain · 2016 · Red',
-        es: 'DOCa Rioja · España · 2016 · Tinto',
-      },
-      name: 'Marqués de Murrieta Castillo Ygay / Reserva',
-      notes: {
-        fr: 'Notes de cerise noire, cèdre, truffe et épices douces. Idéal avec le Tournedos aux Morilles.',
-        en: 'Notes of black cherry, cedar, truffle, and sweet spices. Ideal pairing with Beef Tenderloin.',
-        es: 'Notas de cereza negra, cedro, trufa y especias dulces. Maridaje ideal con el Tournedó de Solomillo.',
-      },
-    },
-    {
-      id: 'wine-2',
-      region: {
-        fr: 'DO Ribera del Duero · España · 2019 · Rouge',
-        en: 'DO Ribera del Duero · Spain · 2019 · Red',
-        es: 'DO Ribera del Duero · España · 2019 · Tinto',
-      },
-      name: 'Pago de Carraovejas Crianza',
-      notes: {
-        fr: 'Velouté, profond et structuré, aux arômes de mûre confite et cacao. Sublime le Magret de Canard.',
-        en: 'Velvety, deep and structured, with aromas of candied blackberry and cacao. Sublimes Roasted Duck.',
-        es: 'Aterciopelado, profundo y estructurado, con aromas a mora confitada y cacao. Sublime con el Magret de Pato.',
-      },
-    },
-    {
-      id: 'wine-3',
-      region: {
-        fr: 'Bourgogne · France · 2021 · Blanc (100% Chardonnay)',
-        en: 'Burgundy · France · 2021 · White (100% Chardonnay)',
-        es: 'Borgoña · Francia · 2021 · Blanco (100% Chardonnay)',
-      },
-      name: 'Domaine William Fèvre Chablis 1er Cru',
-      notes: {
-        fr: 'Minéralité cristalline, fleurs blanches et agrumes frais. Accompagne la Pêche de la Baie de Málaga.',
-        en: 'Crystalline minerality, white flowers, and crisp citrus. Accompanies the Catch of the Day.',
-        es: 'Mineralidad cristalina, flores blancas y cítricos frescos. Acompaña la Pesca del Día de la Bahía.',
-      },
-    },
-    {
-      id: 'wine-4',
-      region: {
-        fr: 'Champagne · France · Brut Réserve',
-        en: 'Champagne · France · Brut Réserve',
-        es: 'Champagne · Francia · Brut Réserve',
-      },
-      name: 'Billecart-Salmon Brut Réserve',
-      notes: {
-        fr: 'Bulle aérienne, poire fraîche et brioche fine. L’ouverture parfaite sur notre terrasse avec vue mer.',
-        en: 'Airy bubbles, fresh pear, and fine brioche. The perfect opening on our sea-view terrace.',
-        es: 'Burbuja aérea, pera fresca y brioche delicado. El inicio perfecto en nuestra terraza con vistas.',
       },
     },
   ];
@@ -628,7 +568,11 @@
     },
   };
 
-  // Helper: Local date formatted as YYYY-MM-DD
+  // State of the form
+  let selectedTime = '20:30';
+  let selectedSeating = 'terrace';
+
+  // Helper date locale sans décalage UTC
   function getLocalDateString(d) {
     const year = d.getFullYear();
     const month = String(d.getMonth() + 1).padStart(2, '0');
@@ -643,6 +587,7 @@
     initLanguageSwitcher();
     initMenuFilter();
     filterMenuDishes();
+    updateMenuTexts(currentLang);
     initReservationForm();
     initModals();
     applyLanguage(currentLang);
@@ -697,7 +642,7 @@
     const t = I18N[lang];
     if (!t) return;
 
-    // Replace text of all data-i18n elements
+    // Remplacement des textes avec data-i18n
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.dataset.i18n;
       if (t[key]) {
@@ -705,7 +650,7 @@
       }
     });
 
-    // Replace placeholders
+    // Remplacement des placeholders
     document.querySelectorAll('[data-i18n-ph]').forEach(el => {
       const key = el.dataset.i18nPh;
       if (t[key]) {
@@ -713,19 +658,16 @@
       }
     });
 
-    // Animate hero title words
+    // Titre Hero animé
     renderHeroTitle(lang);
 
-    // Update localized dish names and pairings
+    // Textes et images des plats
     updateMenuTexts(lang);
 
-    // Update wine cellar notes
-    updateWineTexts(lang);
-
-    // Update guests dropdown labels
+    // Options du menu déroulant convives
     updateGuestsSelect(lang);
 
-    // Update live form summary
+    // Résumé en direct
     updateFormSummary();
   }
 
@@ -774,6 +716,12 @@
       const dish = DISHES.find(d => d.id === dishId);
       if (!dish) return;
 
+      // Mise à jour de la photo (.jpg)
+      const imgEl = card.querySelector('img');
+      if (imgEl && dish.image) {
+        imgEl.src = dish.image;
+      }
+
       const nameEl = card.querySelector('[data-dish-field="name"]');
       if (nameEl) nameEl.textContent = dish.name[lang];
 
@@ -788,20 +736,6 @@
     });
   }
 
-  function updateWineTexts(lang) {
-    document.querySelectorAll('.wine-item').forEach(item => {
-      const wineId = item.dataset.wineId;
-      const wine = WINES.find(w => w.id === wineId);
-      if (!wine) return;
-
-      const regEl = item.querySelector('[data-wine-field="region"]');
-      if (regEl) regEl.textContent = wine.region[lang];
-
-      const notesEl = item.querySelector('[data-wine-field="notes"]');
-      if (notesEl) notesEl.textContent = wine.notes[lang];
-    });
-  }
-
   function updateGuestsSelect(lang) {
     const select = document.getElementById('res-guests');
     if (!select) return;
@@ -810,19 +744,19 @@
       en: (n) => `${n} ${n > 1 ? 'guests' : 'guest'}`,
       es: (n) => `${n} ${n > 1 ? 'comensales' : 'comensal'}`,
     };
-    const formatFn = labels[lang] || labels.fr;
+    const fn = labels[lang] || labels.fr;
     Array.from(select.options).forEach(opt => {
-      const num = parseInt(opt.value, 10);
-      opt.textContent = formatFn(num);
+      const val = parseInt(opt.value, 10);
+      opt.textContent = fn(val);
     });
   }
 
-  // Reservation Form & WhatsApp Integration
+  // Réservation & WhatsApp
   function initReservationForm() {
     const dateInput = document.getElementById('res-date');
     if (dateInput) {
       const today = new Date();
-      // If Monday (closed), default selection to Tuesday
+      // Si lundi, avancer au mardi
       if (today.getDay() === 1) {
         today.setDate(today.getDate() + 1);
       }
@@ -840,7 +774,7 @@
     const guestsInput = document.getElementById('res-guests');
     if (guestsInput) guestsInput.addEventListener('change', updateFormSummary);
 
-    // Time slot buttons
+    // Créneaux horaires
     const timeBtns = document.querySelectorAll('.time-btn');
     timeBtns.forEach(btn => {
       btn.addEventListener('click', () => {
@@ -851,7 +785,7 @@
       });
     });
 
-    // Seating buttons
+    // Placement
     const seatingBtns = document.querySelectorAll('.seating-btn');
     seatingBtns.forEach(btn => {
       btn.addEventListener('click', () => {
@@ -862,7 +796,7 @@
       });
     });
 
-    // Form submit
+    // Envoi
     const form = document.getElementById('reservation-form');
     if (form) {
       form.addEventListener('submit', handleReservationSubmit);
@@ -949,11 +883,11 @@
       successBox.classList.add('visible');
     }
 
-    // Open WhatsApp
+    // Ouvrir WhatsApp
     window.open(waUrl, '_blank', 'noopener,noreferrer');
   }
 
-  // Modals & Keyboard Accessibility
+  // Modales
   function initModals() {
     const modal = document.getElementById('legal-modal');
     const closeBtn = document.querySelector('.modal-close');
@@ -982,7 +916,7 @@
       });
     }
 
-    // Close modal on Escape key
+    // Fermeture avec Échap
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && modal && modal.classList.contains('open')) {
         modal.classList.remove('open');
