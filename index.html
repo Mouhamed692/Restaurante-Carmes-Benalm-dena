@@ -1,0 +1,962 @@
+<!doctype html>
+<html lang="fr" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Restaurante Carmesí – Haute Cuisine | Benalmádena Pueblo</title>
+    <meta
+      name="description"
+      content="Fine French Dining with Spanish Soul. Une expérience gastronomique intime orchestrée par le Chef Ton Overbeek & Inge à Benalmádena Pueblo, Málaga."
+    />
+
+    <!-- Open Graph / WhatsApp / Facebook -->
+    <meta property="og:type" content="restaurant" />
+    <meta property="og:site_name" content="Restaurante Carmesí" />
+    <meta property="og:title" content="Restaurante Carmesí – Haute Cuisine | Benalmádena Pueblo" />
+    <meta
+      property="og:description"
+      content="L'Élégance Française, la Passion Andalouse. Dîner gastronomique sur terrasse avec vue mer par le Chef Ton Overbeek & Inge."
+    />
+    <meta property="og:image" content="./assets/aistudio/image_61499fb3.jpg" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Restaurante Carmesí – Haute Cuisine | Benalmádena Pueblo" />
+    <meta
+      name="twitter:description"
+      content="Fine French Dining with Spanish Soul à Benalmádena Pueblo, Málaga. Réservez votre table en direct."
+    />
+    <meta name="twitter:image" content="./assets/aistudio/image_61499fb3.jpg" />
+
+    <!-- Google Fonts: Cormorant Garamond & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Pure Standalone Stylesheet -->
+    <link rel="stylesheet" href="./style.css" />
+
+    <!-- Pure Standalone Script -->
+    <script type="module" src="./script.js"></script>
+
+    <!-- Schema.org Fine Dining Restaurant Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Restaurant",
+        "name": "Restaurante Carmesí",
+        "description": "Haute gastronomie française mariée au terroir andalou, dirigée par le Chef Ton Overbeek et Inge au cœur de Benalmádena Pueblo.",
+        "image": "./assets/aistudio/image_61499fb3.jpg",
+        "servesCuisine": ["French", "Andalusian", "Mediterranean", "Fine Dining"],
+        "priceRange": "€€€",
+        "telephone": "+34 623 53 44 94",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Avenida del Chorrillo",
+          "addressLocality": "Benalmádena Pueblo",
+          "addressRegion": "Málaga",
+          "postalCode": "29639",
+          "addressCountry": "ES"
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+            "opens": "19:30",
+            "closes": "23:30"
+          }
+        ],
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "bestRating": "5",
+          "ratingCount": "340"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <!-- Header Flottant (Glassmorphism) -->
+    <header class="site-header">
+      <div class="container nav-wrapper">
+        <!-- Logo -->
+        <a href="#hero" class="brand-logo">CARMESÍ</a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="desktop-nav" aria-label="Navigation principale">
+          <a href="#hero" class="nav-link active" data-i18n="nav_home">Accueil</a>
+          <a href="#histoire" class="nav-link" data-i18n="nav_story">L'Histoire</a>
+          <a href="#carte" class="nav-link" data-i18n="nav_menu">La Carte</a>
+          <a href="#cave" class="nav-link" data-i18n="nav_cellar">La Cave</a>
+          <a href="#acces" class="nav-link" data-i18n="nav_access">Accès</a>
+        </nav>
+
+        <!-- Right: Language Switcher & Gold CTA -->
+        <div class="header-actions">
+          <div class="lang-switcher" role="group" aria-label="Language selector">
+            <button type="button" class="lang-btn active" data-lang="fr">FR</button>
+            <span>/</span>
+            <button type="button" class="lang-btn" data-lang="en">EN</button>
+            <span>/</span>
+            <button type="button" class="lang-btn" data-lang="es">ES</button>
+          </div>
+
+          <a href="#reservations" class="btn btn-gold" data-i18n="nav_reserve">Réserver une Table</a>
+        </div>
+
+        <!-- Mobile Toggle Button -->
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <div class="lang-switcher" style="display: flex;" role="group" aria-label="Language selector">
+            <button type="button" class="lang-btn active" data-lang="fr">FR</button>
+            <span>/</span>
+            <button type="button" class="lang-btn" data-lang="en">EN</button>
+            <span>/</span>
+            <button type="button" class="lang-btn" data-lang="es">ES</button>
+          </div>
+
+          <button type="button" class="mobile-toggle" aria-label="Menu" id="mobile-toggle-btn">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-menu-drawer" id="mobile-menu-drawer">
+      <a href="#hero" class="mobile-nav-link" data-i18n="nav_home">Accueil</a>
+      <a href="#histoire" class="mobile-nav-link" data-i18n="nav_story">L'Histoire</a>
+      <a href="#carte" class="mobile-nav-link" data-i18n="nav_menu">La Carte</a>
+      <a href="#cave" class="mobile-nav-link" data-i18n="nav_cellar">La Cave</a>
+      <a href="#reservations" class="mobile-nav-link" data-i18n="nav_reserve">Réservations</a>
+      <a href="#acces" class="mobile-nav-link" data-i18n="nav_access">Accès</a>
+      <a href="#reservations" class="btn btn-gold" style="margin-top: 1rem;" data-i18n="nav_reserve">Réserver une Table</a>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Hero Section -->
+      <section id="hero" class="hero-section">
+        <div class="hero-backdrop">
+          <img
+            src="./assets/aistudio/image_61499fb3.jpg"
+            alt="Restaurante Carmesí Benalmádena Pueblo terrasse au crépuscule"
+            onerror="this.src='./assets/aistudio/image_b0a7f51f.jpg'"
+          />
+          <div class="hero-overlay"></div>
+          <div class="hero-radial"></div>
+        </div>
+
+        <div class="container">
+          <div class="hero-content">
+            <!-- Kicker & Rating -->
+            <div class="hero-kicker">
+              <span data-i18n="hero_kicker">CARMESÍ – HAUTE CUISINE · BENALMÁDENA PUEBLO</span>
+              <span>·</span>
+              <span class="rating-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="#D4AF37" stroke="#D4AF37" stroke-width="1.5">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                </svg>
+                4.9 / 5
+              </span>
+            </div>
+
+            <!-- Animated Word-by-Word Headline -->
+            <h1 class="hero-title" id="hero-title">
+              <span class="hero-word">L'Élégance</span>
+              <span class="hero-word">Française,</span>
+              <span class="hero-word">la</span>
+              <span class="hero-word gold">Passion</span>
+              <span class="hero-word gold">Andalouse.</span>
+            </h1>
+
+            <!-- Animated Gold Hairline -->
+            <div class="hero-hairline"></div>
+
+            <!-- Subtitle -->
+            <p class="hero-subtitle" data-i18n="hero_sub">
+              Une expérience gastronomique intime orchestrée par le Chef Ton Overbeek & Inge au cœur de Benalmádena Pueblo.
+            </p>
+
+            <!-- Call to Actions -->
+            <div class="hero-cta-group">
+              <a href="#reservations" class="btn btn-gold" data-i18n="cta_reserve">
+                <span>Réserver via Formulaire</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+
+              <a href="#carte" class="btn btn-outline" data-i18n="cta_menu">
+                Explorer La Carte
+              </a>
+
+              <a
+                href="https://wa.me/34623534494?text=Bonjour%20Ton%20%26%20Inge%2C%20je%20souhaite%20r%C3%A9server%20une%20table%20au%20Restaurante%20Carmes%C3%AD."
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-whatsapp"
+              >
+                <img src="./assets/aistudio/image_bafe8f51.jpg" alt="WhatsApp" style="width: 18px; height: 18px; border-radius: 50%; object-fit: contain;" />
+                <span data-i18n="cta_whatsapp">Réservation Directe WhatsApp</span>
+              </a>
+            </div>
+
+            <!-- Bottom Service Note -->
+            <div class="hero-service-bar">
+              <span data-i18n="hero_service">Mardi – Dimanche · 19h30 – 23h30 · Terrasse Vue Mer & Salle Intime</span>
+              <span style="color: var(--gold-champagne);">Fine French Dining with Spanish Soul</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: L'Histoire & Les Hôtes -->
+      <section id="histoire" class="section">
+        <div class="container">
+          <div class="story-grid">
+            <!-- Left: Editorial Prose -->
+            <div>
+              <div class="section-kicker" data-i18n="story_kicker">L'Expérience & Les Hôtes</div>
+              <h2 class="section-title" data-i18n="story_title">
+                Plus de 24 ans de passion gastronomique, entre Paris et l’Andalousie.
+              </h2>
+
+              <div class="story-prose">
+                <p class="lead" data-i18n="story_p1">
+                  Derrière le Restaurante Carmesí se trouve un duo d’exception : le Chef Ton Overbeek en cuisine et son épouse Inge en salle. Forts de plus de vingt-quatre années de succès gastronomique — notamment en tant qu’anciens propriétaires du renommé restaurant Karmozijn — ils insufflent à chaque dîner une exigence rare.
+                </p>
+                <p data-i18n="story_p2">
+                  Leur signature, « Fine French Dining with Spanish Soul », marie la rigueur des sauces classiques françaises aux trésors saisonniers de la baie de Málaga et du terroir andalou.
+                </p>
+                <p data-i18n="story_p3">
+                  Que vous choisissiez notre terrasse intime ouverte sur les lumières lointaines de la Méditerranée ou notre salle intérieure feutrée aux fauteuils de velours, Inge veille personnellement à ce que chaque soirée devienne un souvenir inoubliable.
+                </p>
+              </div>
+
+              <div class="story-signature">
+                <span>Chef Ton Overbeek & Inge</span>
+                <span>Benalmádena Pueblo · Málaga</span>
+              </div>
+            </div>
+
+            <!-- Right: Photos -->
+            <div class="story-photos">
+              <div class="photo-card">
+                <img
+                  src="./assets/aistudio/image_b96053f2.jpg"
+                  alt="Salle intérieure feutrée du Restaurante Carmesí"
+                  loading="lazy"
+                />
+                <div class="photo-label">Le Salon Intime</div>
+              </div>
+
+              <div class="photo-card stagger">
+                <img
+                  src="./assets/aistudio/image_b0a7f51f.jpg"
+                  alt="Table dressée aux chandelles avec vin rouge et rose"
+                  loading="lazy"
+                />
+                <div class="photo-label">Art de la Table</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Editorial Metrics Strip -->
+          <div class="metrics-strip">
+            <div class="metric-item">
+              <div class="metric-val" data-i18n="metric_1_val">24+ Ans</div>
+              <div class="metric-lbl" data-i18n="metric_1_lbl">Savoir-Faire Gastronomique (Ex-Karmozijn)</div>
+            </div>
+            <div class="metric-item">
+              <div class="metric-val" data-i18n="metric_2_val">4.9 / 5</div>
+              <div class="metric-lbl" data-i18n="metric_2_lbl">Note d'Excellence · Avis Vérifiés</div>
+            </div>
+            <div class="metric-item">
+              <div class="metric-val" data-i18n="metric_3_val">19h30 – 23h30</div>
+              <div class="metric-lbl" data-i18n="metric_3_lbl">Service du Soir · Mardi au Dimanche</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: La Carte & Menu Dégustation -->
+      <section id="carte" class="section section-darker">
+        <div class="container">
+          <!-- Header -->
+          <div class="section-kicker" data-i18n="menu_kicker">Spécialités Culinaires</div>
+          <h2 class="section-title" data-i18n="menu_title">La Carte Prestige & Menu Dégustation</h2>
+          <p class="section-subtitle" data-i18n="menu_sub">
+            Naviguez librement entre nos entrées, poissons de la baie, viandes nobles, accompagnements de saison et desserts signatures.
+          </p>
+
+          <!-- Interactive Filter Tabs -->
+          <div class="menu-nav" role="tablist">
+            <button type="button" class="filter-btn active" data-category="all" data-i18n="tab_all">Toute la Carte</button>
+            <button type="button" class="filter-btn" data-category="starters" data-i18n="tab_starters">Entrées</button>
+            <button type="button" class="filter-btn" data-category="sea" data-i18n="tab_sea">Poissons & Mer</button>
+            <button type="button" class="filter-btn" data-category="land" data-i18n="tab_land">Viandes & Terre</button>
+            <button type="button" class="filter-btn" data-category="sides" data-i18n="tab_sides">Accompagnements</button>
+            <button type="button" class="filter-btn" data-category="desserts" data-i18n="tab_desserts">Desserts</button>
+          </div>
+
+          <!-- Menu Dishes Grid directly in HTML -->
+          <div id="menu-dishes-container">
+            <!-- Entrées -->
+            <div class="category-group" data-group-category="starters">
+              <div class="category-heading">
+                <h3 class="category-title font-serif" data-i18n="tab_starters">Entrées</h3>
+                <div class="category-line"></div>
+              </div>
+              <div class="dish-grid three-col">
+                <article class="dish-card" data-category="starters" data-dish-id="tartare">
+                  <div class="dish-img-wrap">
+                    <img src="./assets/aistudio/image_7240eba3.jpg" alt="Steak Tartare au Couteau" loading="lazy" onerror="this.src='./assets/aistudio/image_61499fb3.jpg'" />
+                  </div>
+                  <div class="dish-body">
+                    <div>
+                      <div class="dish-header">
+                        <h4 class="dish-name" data-dish-field="name">Steak Tartare au Couteau</h4>
+                        <span class="dish-price">22 €</span>
+                      </div>
+                      <div class="dish-sub" data-dish-field="subtitle">Bistronomie Parisienne · Condiments Fins</div>
+                      <p class="dish-desc" data-dish-field="description">Filet de bœuf taillé au couteau minute, câpres surfines, échalotes ciselées, moutarde à l’ancienne et brioche toastée au beurre demi-sel.</p>
+                    </div>
+                    <div class="dish-pairing">
+                      <span data-i18n="pairing_label">Accord suggéré</span>
+                      <span data-dish-field="pairing">Sancerre Blanc ou Rioja Crianza</span>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="dish-card" data-category="starters" data-dish-id="soupe">
+                  <div class="dish-img-wrap">
+                    <img src="./assets/aistudio/image_8636c49b.jpg" alt="Soupe de Poissons & Crustacés de Méditerranée" loading="lazy" onerror="this.src='./assets/aistudio/image_61499fb3.jpg'" />
+                  </div>
+                  <div class="dish-body">
+                    <div>
+                      <div class="dish-header">
+                        <h4 class="dish-name" data-dish-field="name">Soupe de Poissons & Crustacés de Méditerranée</h4>
+                        <span class="dish-price">19 €</span>
+                      </div>
+                      <div class="dish-sub" data-dish-field="subtitle">Bouillabaisse Revisitée · Rouille Safranée</div>
+                      <p class="dish-desc" data-dish-field="description">Fumet corsé de poissons de roche et langoustines, rouille maison au safran d’Andalousie, croûtons aillés et zestes d’orange amère.</p>
+                    </div>
+                    <div class="dish-pairing">
+                      <span data-i18n="pairing_label">Accord suggéré</span>
+                      <span data-dish-field="pairing">Chablis 1er Cru ou Albariño</span>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="dish-card" data-category="starters" data-dish-id="scallops">
+                  <div class="dish-img-wrap">
+                    <img src="./assets/aistudio/image_885cb48f.jpg" alt="Noix de Saint-Jacques Poêlées" loading="lazy" onerror="this.src='./assets/aistudio/image_61499fb3.jpg'" />
+                  </div>
+                  <div class="dish-body">
+                    <div>
+                      <div class="dish-header">
+                        <h4 class="dish-name" data-dish-field="name">Noix de Saint-Jacques Poêlées</h4>
+                        <span class="dish-price">24 €</span>
+                      </div>
+                      <div class="dish-sub" data-dish-field="subtitle">Émulsion Champagne · Fleurs Comestibles</div>
+                      <p class="dish-desc" data-dish-field="description">Saint-Jacques snackées à la nacre, beurre blanc léger au champagne brut, huile d’herbes fines et jeunes pousses.</p>
+                    </div>
+                    <div class="dish-pairing">
+                      <span data-i18n="pairing_label">Accord suggéré</span>
+                      <span data-dish-field="pairing">Champagne Brut Réserve</span>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            <!-- Poissons & Mer -->
+            <div class="category-group" data-group-category="sea">
+              <div class="category-heading">
+                <h3 class="category-title font-serif" data-i18n="tab_sea">Poissons & Mer</h3>
+                <div class="category-line"></div>
+              </div>
+              <div class="dish-grid">
+                <article class="dish-card" data-category="sea" data-dish-id="catch">
+                  <div class="dish-img-wrap">
+                    <img src="./assets/aistudio/image_dc103544.jpg" alt="Catch of the Day — Pêche de la Baie de Málaga" loading="lazy" onerror="this.src='./assets/aistudio/image_61499fb3.jpg'" />
+                  </div>
+                  <div class="dish-body">
+                    <div>
+                      <div class="dish-header">
+                        <h4 class="dish-name" data-dish-field="name">Catch of the Day — Pêche de la Baie de Málaga</h4>
+                        <span class="dish-price">32 €</span>
+                      </div>
+                      <div class="dish-sub" data-dish-field="subtitle">Beurre Blanc aux Agrumes · Asperges Blanches</div>
+                      <p class="dish-desc" data-dish-field="description">Poisson sauvage sélectionné chaque matin à la criée, rôti sur peau, sublimé par un beurre blanc aux agrumes d’Andalousie et pois gourmands.</p>
+                    </div>
+                    <div class="dish-pairing">
+                      <span data-i18n="pairing_label">Accord suggéré</span>
+                      <span data-dish-field="pairing">Meursault ou Verdejo Sobre Lías</span>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="dish-card" data-category="sea" data-dish-id="salmon">
+                  <div class="dish-img-wrap">
+                    <img src="./assets/aistudio/image_00afa11f.jpg" alt="Pavé de Saumon Croustillant" loading="lazy" onerror="this.src='./assets/aistudio/image_61499fb3.jpg'" />
+                  </div>
+                  <div class="dish-body">
+                    <div>
+                      <div class="dish-header">
+                        <h4 class="dish-name" data-dish-field="name">Pavé de Saumon Croustillant</h4>
+                        <span class="dish-price">29 €</span>
+                      </div>
+                      <div class="dish-sub" data-dish-field="subtitle">Mousseline de Saison · Croquette Maison</div>
+                      <p class="dish-desc" data-dish-field="description">Cœur de saumon cuit à basse température, peau dorée et croustillante, mousseline veloutée de céleri-rave et légumes primeurs.</p>
+                    </div>
+                    <div class="dish-pairing">
+                      <span data-i18n="pairing_label">Accord suggéré</span>
+                      <span data-dish-field="pairing">Pouilly-Fumé ou Rosado de Navarra</span>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            <!-- Viandes & Terre -->
+            <div class="category-group" data-group-category="land">
+              <div class="category-heading">
+                <h3 class="category-title font-serif" data-i18n="tab_land">Viandes & Terre</h3>
+                <div class="category-line"></div>
+              </div>
+              <div class="dish-grid">
+                <article class="dish-card" data-category="land" data-dish-id="tournedos">
+                  <div class="dish-img-wrap">
+                    <img src="./assets/aistudio/image_b0a7f51f.jpg" alt="Tournedos de Bœuf aux Morilles" loading="lazy" onerror="this.src='./assets/aistudio/image_61499fb3.jpg'" />
+                  </div>
+                  <div class="dish-body">
+                    <div>
+                      <div class="dish-header">
+                        <h4 class="dish-name" data-dish-field="name">Tournedos de Bœuf aux Morilles</h4>
+                        <span class="dish-price">38 €</span>
+                      </div>
+                      <div class="dish-sub" data-dish-field="subtitle">Jus Corsé au Vin Rouge · Asperges de Saison</div>
+                      <p class="dish-desc" data-dish-field="description">Cœur de filet de bœuf saisi au beurre clarifié, sauce réduite aux morilles sauvages et vin rouge de Rioja, garniture maraîchère.</p>
+                    </div>
+                    <div class="dish-pairing">
+                      <span data-i18n="pairing_label">Accord suggéré</span>
+                      <span data-dish-field="pairing">Ribera del Duero Reserva ou Pauillac</span>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="dish-card" data-category="land" data-dish-id="duck">
+                  <div class="dish-img-wrap">
+                    <img src="./assets/aistudio/image_bbd7787f.jpg" alt="Magret de Canard Rôti" loading="lazy" onerror="this.src='./assets/aistudio/image_61499fb3.jpg'" />
+                  </div>
+                  <div class="dish-body">
+                    <div>
+                      <div class="dish-header">
+                        <h4 class="dish-name" data-dish-field="name">Magret de Canard Rôti</h4>
+                        <span class="dish-price">31 €</span>
+                      </div>
+                      <div class="dish-sub" data-dish-field="subtitle">Légumes Confits · Jus aux Épices Douces</div>
+                      <p class="dish-desc" data-dish-field="description">Magret de canard rosé à la perfection, peau laquée au miel de fleurs d’oranger, déclinaison de légumes confits et croquette croustillante.</p>
+                    </div>
+                    <div class="dish-pairing">
+                      <span data-i18n="pairing_label">Accord suggéré</span>
+                      <span data-dish-field="pairing">Priorat DOCa ou Châteauneuf-du-Pape</span>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            <!-- Accompagnements -->
+            <div class="category-group" data-group-category="sides">
+              <div class="category-heading">
+                <h3 class="category-title font-serif" data-i18n="tab_sides">Accompagnements</h3>
+                <div class="category-line"></div>
+              </div>
+              <div class="dish-grid">
+                <article class="dish-card" data-category="sides" data-dish-id="asparagus">
+                  <div class="dish-img-wrap">
+                    <img src="./assets/aistudio/image_98c1f1ad.jpg" alt="Asperges Blanches & Vertes de Saison" loading="lazy" onerror="this.src='./assets/aistudio/image_61499fb3.jpg'" />
+                  </div>
+                  <div class="dish-body">
+                    <div>
+                      <div class="dish-header">
+                        <h4 class="dish-name" data-dish-field="name">Asperges Blanches & Vertes de Saison</h4>
+                        <span class="dish-price">11 €</span>
+                      </div>
+                      <div class="dish-sub" data-dish-field="subtitle">Beurre Noisette · Fleur de Sel de Cadix</div>
+                      <p class="dish-desc" data-dish-field="description">Pointes d’asperges blanches et vertes pochées puis glacées au beurre noisette, relevées d’une pointe de fleur de sel.</p>
+                    </div>
+                    <div class="dish-pairing">
+                      <span data-i18n="pairing_label">Accord suggéré</span>
+                      <span data-dish-field="pairing">Accompagnement idéal Poissons & Viandes</span>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="dish-card" data-category="sides" data-dish-id="croquette">
+                  <div class="dish-img-wrap">
+                    <img src="./assets/aistudio/image_484b890e.jpg" alt="Croquette Croustillante & Mousseline Truffée" loading="lazy" onerror="this.src='./assets/aistudio/image_61499fb3.jpg'" />
+                  </div>
+                  <div class="dish-body">
+                    <div>
+                      <div class="dish-header">
+                        <h4 class="dish-name" data-dish-field="name">Croquette Croustillante & Mousseline Truffée</h4>
+                        <span class="dish-price">10 €</span>
+                      </div>
+                      <div class="dish-sub" data-dish-field="subtitle">Céleri-Rave · Éclat de Truffe Noire</div>
+                      <p class="dish-desc" data-dish-field="description">Croquette dorée au cœur fondant servie sur une mousseline onctueuse de céleri-rave parfumée à la truffe noire.</p>
+                    </div>
+                    <div class="dish-pairing">
+                      <span data-i18n="pairing_label">Accord suggéré</span>
+                      <span data-dish-field="pairing">Accompagnement idéal Viandes Rouges</span>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            <!-- Desserts Signatures -->
+            <div class="category-group" data-group-category="desserts">
+              <div class="category-heading">
+                <h3 class="category-title font-serif" data-i18n="tab_desserts">Desserts</h3>
+                <div class="category-line"></div>
+              </div>
+              <div class="dish-grid">
+                <article class="dish-card" data-category="desserts" data-dish-id="suzette">
+                  <div class="dish-img-wrap">
+                    <img src="./assets/aistudio/image_b06af0cc.jpg" alt="Crêpes Suzette Flambées Traditionnelles" loading="lazy" onerror="this.src='./assets/aistudio/image_61499fb3.jpg'" />
+                  </div>
+                  <div class="dish-body">
+                    <div>
+                      <div class="dish-header">
+                        <h4 class="dish-name" data-dish-field="name">Crêpes Suzette Flambées Traditionnelles</h4>
+                        <span class="dish-price">16 €</span>
+                      </div>
+                      <div class="dish-sub" data-dish-field="subtitle">Grand Marnier · Oranges Amères d’Andalousie</div>
+                      <p class="dish-desc" data-dish-field="description">Fines crêpes caramélisées au beurre frais, jus d’oranges de Málaga, flambées au Grand Marnier et glace vanille Bourbon.</p>
+                    </div>
+                    <div class="dish-pairing">
+                      <span data-i18n="pairing_label">Accord suggéré</span>
+                      <span data-dish-field="pairing">Pedro Ximénez ou Sauternes</span>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="dish-card" data-category="desserts" data-dish-id="moelleux">
+                  <div class="dish-img-wrap">
+                    <img src="./assets/aistudio/image_b9b380f4.jpg" alt="Moelleux au Chocolat Grand Cru" loading="lazy" onerror="this.src='./assets/aistudio/image_61499fb3.jpg'" />
+                  </div>
+                  <div class="dish-body">
+                    <div>
+                      <div class="dish-header">
+                        <h4 class="dish-name" data-dish-field="name">Moelleux au Chocolat Grand Cru</h4>
+                        <span class="dish-price">15 €</span>
+                      </div>
+                      <div class="dish-sub" data-dish-field="subtitle">Chocolat Noir 70% · Glace Artisanale</div>
+                      <p class="dish-desc" data-dish-field="description">Biscuit tiède au cœur coulant de chocolat noir Grand Cru, éclats de fève de cacao torréfiée et quenelle de glace artisanale.</p>
+                    </div>
+                    <div class="dish-pairing">
+                      <span data-i18n="pairing_label">Accord suggéré</span>
+                      <span data-dish-field="pairing">Banyuls Rimage ou Cognac XO</span>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tasting Menu Banner -->
+          <div class="tasting-banner">
+            <div>
+              <h3 class="tasting-title" data-i18n="tasting_title">Menu Dégustation Carmesí · 4 Services</h3>
+              <p class="tasting-desc" data-i18n="tasting_desc">
+                Amuse-bouche du Chef, Entrée au choix, Plat de la Mer ou de la Terre, et Dessert Signature.
+              </p>
+            </div>
+            <div class="tasting-price-wrap">
+              <span class="tasting-price" data-i18n="tasting_price">68 € / convive</span>
+              <a href="#reservations" class="btn btn-gold" data-i18n="tasting_cta">Réserver ce Menu</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: La Cave à Vins -->
+      <section id="cave" class="section">
+        <div class="container">
+          <div class="cellar-grid">
+            <!-- Left: Photo Card -->
+            <div class="cellar-photo">
+              <img
+                src="./assets/aistudio/image_98c1f1ad.jpg"
+                alt="Accords mets et vins sur la terrasse du Restaurante Carmesí"
+                loading="lazy"
+              />
+              <div class="cellar-photo-overlay">
+                <div style="font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-primary); margin-bottom: 0.35rem;">
+                  Sommelier Selection
+                </div>
+                <div class="font-serif" style="font-size: 1.35rem; color: #FFFFFF;">
+                  Dégustation au verre & millésimes rares
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: Wine List -->
+            <div>
+              <div class="section-kicker" data-i18n="cellar_kicker">La Cave & Accords</div>
+              <h2 class="section-title" data-i18n="cellar_title">Grands Crus Français & Trésors d’Espagne</h2>
+              <p class="section-subtitle" style="margin-bottom: 2rem;" data-i18n="cellar_sub">
+                Sélectionnés avec soin par Inge, nos flacons célèbrent les terroirs de Rioja, Ribera del Duero, Bourgogne et Champagne.
+              </p>
+
+              <div class="wine-list">
+                <!-- Wine 1 -->
+                <div class="wine-item">
+                  <div>
+                    <div class="wine-region">DOCa Rioja · España · 2016 · Rouge</div>
+                    <h3 class="wine-name">Marqués de Murrieta Castillo Ygay / Reserva</h3>
+                    <p class="wine-notes">Notes de cerise noire, cèdre, truffe et épices douces. Idéal avec le Tournedos aux Morilles.</p>
+                  </div>
+                  <div class="wine-prices">
+                    <div>Bouteille <span>68 €</span></div>
+                  </div>
+                </div>
+
+                <!-- Wine 2 -->
+                <div class="wine-item">
+                  <div>
+                    <div class="wine-region">DO Ribera del Duero · España · 2019 · Rouge</div>
+                    <h3 class="wine-name">Pago de Carraovejas Crianza</h3>
+                    <p class="wine-notes">Velouté, profond et structuré, aux arômes de mûre confite et cacao. Sublime le Magret de Canard.</p>
+                  </div>
+                  <div class="wine-prices">
+                    <div>Verre <span>14 €</span></div>
+                    <div>Bouteille <span>62 €</span></div>
+                  </div>
+                </div>
+
+                <!-- Wine 3 -->
+                <div class="wine-item">
+                  <div>
+                    <div class="wine-region">Bourgogne · France · 2021 · Blanc (100% Chardonnay)</div>
+                    <h3 class="wine-name">Domaine William Fèvre Chablis 1er Cru</h3>
+                    <p class="wine-notes">Minéralité cristalline, fleurs blanches et agrumes frais. Accompagne la Pêche de la Baie de Málaga.</p>
+                  </div>
+                  <div class="wine-prices">
+                    <div>Verre <span>15 €</span></div>
+                    <div>Bouteille <span>74 €</span></div>
+                  </div>
+                </div>
+
+                <!-- Wine 4 -->
+                <div class="wine-item">
+                  <div>
+                    <div class="wine-region">Champagne · France · Brut Réserve</div>
+                    <h3 class="wine-name">Billecart-Salmon Brut Réserve</h3>
+                    <p class="wine-notes">Bulle aérienne, poire fraîche et brioche fine. L’ouverture parfaite sur notre terrasse avec vue mer.</p>
+                  </div>
+                  <div class="wine-prices">
+                    <div>Coupe <span>16 €</span></div>
+                    <div>Bouteille <span>85 €</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: Réservations & Conciergerie WhatsApp -->
+      <section id="reservations" class="section section-darker">
+        <div class="container">
+          <div class="section-kicker" data-i18n="res_kicker">Réservation & Conciergerie</div>
+          <h2 class="section-title" data-i18n="res_title">Réservez Votre Table</h2>
+          <p class="section-subtitle" style="margin-bottom: 3.5rem;" data-i18n="res_sub">
+            Une attention personnalisée pour chaque convive. Confirmation directe avec Ton & Inge via WhatsApp.
+          </p>
+
+          <div class="reservation-layout">
+            <!-- Left: Concierge Card -->
+            <div class="concierge-card">
+              <div>
+                <div class="concierge-gold-line"></div>
+                <h3 class="concierge-title" style="margin-top: 1rem;" data-i18n="concierge_title">L’Art de Recevoir</h3>
+                <p class="concierge-body" data-i18n="concierge_body">
+                  Notre salle et notre terrasse vue mer accueillent un nombre limité de tables chaque soir afin de préserver l’intimité et la précision du service.
+                </p>
+              </div>
+
+              <div style="border-top: 1px solid var(--border-subtle); padding-top: 1.25rem;">
+                <div class="form-label" data-i18n="res_hours_lbl">Service du Dîner</div>
+                <div style="font-size: 0.9rem; color: var(--text-primary);" data-i18n="res_hours_val">
+                  Mardi – Dimanche · 19h30 – 23h30 (Fermé le lundi)
+                </div>
+              </div>
+
+              <div style="border-top: 1px solid var(--border-subtle); padding-top: 1.25rem;">
+                <div class="form-label" style="display: flex; align-items: center; gap: 0.5rem; color: var(--gold-primary);">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                  </svg>
+                  <span data-i18n="res_summary_lbl">Aperçu de votre demande</span>
+                </div>
+                <div class="summary-box" id="res-summary-content">
+                  <!-- Injected via JavaScript -->
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: Minimalist Form -->
+            <form class="reservation-form" id="reservation-form" novalidate>
+              <!-- Name & Phone -->
+              <div class="form-row two-col">
+                <div class="form-group">
+                  <label class="form-label" for="res-name" data-i18n="form_name">Nom et prénom *</label>
+                  <input type="text" class="form-input" id="res-name" placeholder="Sophie Laurent" data-i18n-ph="form_name_ph" required />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="res-phone" data-i18n="form_phone">Téléphone / WhatsApp *</label>
+                  <input type="tel" class="form-input" id="res-phone" placeholder="+33 6 12 34 56 78" data-i18n-ph="form_phone_ph" required />
+                </div>
+              </div>
+
+              <!-- Date & Guests -->
+              <div class="form-row two-col">
+                <div class="form-group">
+                  <label class="form-label" for="res-date" data-i18n="form_date">Date du dîner *</label>
+                  <input type="date" class="form-input" id="res-date" required />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="res-guests" data-i18n="form_guests">Convives *</label>
+                  <select class="form-input" id="res-guests" style="background: var(--bg-card); padding: 0.6rem 0;">
+                    <option value="1">1 convive</option>
+                    <option value="2" selected>2 convives</option>
+                    <option value="3">3 convives</option>
+                    <option value="4">4 convives</option>
+                    <option value="5">5 convives</option>
+                    <option value="6">6 convives</option>
+                    <option value="7">7 convives</option>
+                    <option value="8">8 convives</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Time Slot -->
+              <div class="form-group">
+                <label class="form-label" data-i18n="form_time">Créneau horaire *</label>
+                <div class="time-slot-grid">
+                  <button type="button" class="time-btn" data-time="19:30">19:30</button>
+                  <button type="button" class="time-btn" data-time="20:00">20:00</button>
+                  <button type="button" class="time-btn active" data-time="20:30">20:30</button>
+                  <button type="button" class="time-btn" data-time="21:00">21:00</button>
+                  <button type="button" class="time-btn" data-time="21:30">21:30</button>
+                </div>
+              </div>
+
+              <!-- Seating Preference -->
+              <div class="form-group">
+                <label class="form-label" data-i18n="form_seating">Placement souhaité *</label>
+                <div class="seating-group">
+                  <button type="button" class="seating-btn active" data-seating="terrace">
+                    <span data-i18n="seat_terrace">Terrasse avec vue</span>
+                    <span class="dot-indicator"></span>
+                  </button>
+                  <button type="button" class="seating-btn" data-seating="interior">
+                    <span data-i18n="seat_interior">Salle intérieure intime</span>
+                    <span class="dot-indicator"></span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Notes / Allergies -->
+              <div class="form-group">
+                <label class="form-label" for="res-notes" data-i18n="form_notes">Allergies ou occasion spéciale</label>
+                <input type="text" class="form-input" id="res-notes" placeholder="Anniversaire, dîner romantique, allergie..." data-i18n-ph="form_notes_ph" />
+              </div>
+
+              <!-- Alert Box -->
+              <div class="form-alert" id="form-alert" role="alert"></div>
+
+              <!-- Success Box -->
+              <div class="form-success-box" id="form-success-box">
+                <div style="color: var(--whatsapp); font-weight: 600; display: flex; align-items: center; gap: 0.5rem;" data-i18n="succ_title">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                  </svg>
+                  Votre demande est prête sur WhatsApp
+                </div>
+                <p style="font-size: 0.8rem; color: var(--text-muted);" data-i18n="succ_desc">
+                  Si la fenêtre WhatsApp ne s’est pas ouverte automatiquement, cliquez sur le bouton ci-dessous :
+                </p>
+                <a href="#" id="succ-open-btn" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp" style="display: inline-flex; align-self: flex-start; padding: 0.6rem 1.25rem;">
+                  <img src="./assets/aistudio/image_bafe8f51.jpg" alt="WhatsApp" style="width: 18px; height: 18px; border-radius: 50%; object-fit: contain;" />
+                  <span data-i18n="succ_open">Ouvrir WhatsApp maintenant</span>
+                </a>
+              </div>
+
+              <!-- Submit Button -->
+              <button type="submit" class="btn btn-gold" style="width: 100%; padding: 1.1rem; font-size: 0.8rem;">
+                <img src="./assets/aistudio/image_bafe8f51.jpg" alt="WhatsApp" style="width: 18px; height: 18px; border-radius: 50%; object-fit: contain;" />
+                <span data-i18n="form_submit">Envoyer ma demande via WhatsApp</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: Contact & Accès -->
+      <section id="acces" class="section">
+        <div class="container">
+          <div class="contact-grid">
+            <!-- Left Info -->
+            <div>
+              <div class="section-kicker" data-i18n="contact_kicker">Contact & Accès</div>
+              <h2 class="section-title" data-i18n="contact_title">Nous Trouver à Benalmádena Pueblo</h2>
+
+              <div class="contact-info-list">
+                <div class="contact-item">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold-primary)" stroke-width="2" style="flex-shrink: 0; margin-top: 0.2rem;">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                  <div>
+                    <div class="contact-lbl" data-i18n="contact_addr_lbl">Adresse</div>
+                    <div class="contact-val">Avenida del Chorrillo, 29639 Benalmádena Pueblo, Málaga, Espagne</div>
+                  </div>
+                </div>
+
+                <div class="contact-item">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold-primary)" stroke-width="2" style="flex-shrink: 0; margin-top: 0.2rem;">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                  </svg>
+                  <div>
+                    <div class="contact-lbl" data-i18n="contact_phone_lbl">Téléphone & WhatsApp</div>
+                    <div class="contact-val">
+                      <a href="tel:+34623534494">+34 623 53 44 94</a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="contact-item">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold-primary)" stroke-width="2" style="flex-shrink: 0; margin-top: 0.2rem;">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                  <div>
+                    <div class="contact-lbl" data-i18n="contact_hours_lbl">Horaires de Service</div>
+                    <div class="contact-val" data-i18n="contact_hours_val">Mardi – Dimanche | 19h30 – 23h30 | Fermé le lundi</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Question WhatsApp Button -->
+              <a
+                href="https://wa.me/34623534494?text=Bonjour,%20j'ai%20une%20question%20concernant%20le%20Restaurante%20Carmes%C3%AD"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-whatsapp"
+                style="margin-top: 0.5rem;"
+              >
+                <img src="./assets/aistudio/image_bafe8f51.jpg" alt="WhatsApp" style="width: 18px; height: 18px; border-radius: 50%; object-fit: contain;" />
+                <span data-i18n="contact_wa_btn">Nous contacter pour une question sur WhatsApp</span>
+              </a>
+            </div>
+
+            <!-- Right Architectural Map Card -->
+            <div class="map-card">
+              <div class="map-card-pattern"></div>
+              <div style="font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold-champagne); z-index: 2;">
+                36.5956° N, 4.5724° W · Costa del Sol · Málaga
+              </div>
+
+              <div style="z-index: 2;">
+                <div class="map-pin-icon">
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                </div>
+                <h3 class="font-serif" style="font-size: 1.85rem; color: var(--text-primary); margin-bottom: 0.5rem;">
+                  Restaurante Carmesí
+                </h3>
+                <p style="font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-champagne);" data-i18n="contact_map_caption">
+                  Avenida del Chorrillo · Village Blanc de Benalmádena Pueblo · Málaga
+                </p>
+              </div>
+
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Avenida+del+Chorrillo+29639+Benalmadena+Pueblo+Malaga"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-gold"
+                style="z-index: 2; margin-top: 1.5rem;"
+              >
+                <span data-i18n="contact_map_btn">Itinéraire Google Maps</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container footer-wrapper">
+        <div>
+          <a href="#hero" class="brand-logo" style="font-size: 1.25rem;">CARMESÍ</a>
+          <p style="color: var(--text-dim); margin-top: 0.35rem;" data-i18n="footer_rights">
+            © 2026 Restaurante Carmesí · Benalmádena Pueblo, Málaga. Tous droits réservés.
+          </p>
+        </div>
+
+        <div class="footer-links">
+          <a href="tel:+34623534494" style="color: inherit; text-decoration: none;">+34 623 53 44 94</a>
+          <button type="button" class="footer-link-btn" data-open-modal="legal" data-i18n="footer_legal">Mentions Légales</button>
+          <button type="button" class="footer-link-btn" data-open-modal="privacy" data-i18n="footer_privacy">Politique de Confidentialité</button>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Permanent Bottom-Right Floating WhatsApp Button -->
+    <a
+      href="https://wa.me/34623534494?text=Bonjour%20Ton%20%26%20Inge%2C%20je%20souhaite%20r%C3%A9server%20une%20table%20au%20Restaurante%20Carmes%C3%AD."
+      target="_blank"
+      rel="noopener noreferrer"
+      class="floating-whatsapp"
+      aria-label="Contacter sur WhatsApp"
+    >
+      <img
+        src="./assets/aistudio/image_bafe8f51.jpg"
+        alt="WhatsApp"
+        class="floating-whatsapp-img"
+      />
+      <span class="floating-whatsapp-text">WhatsApp</span>
+    </a>
+
+    <!-- Modal for Legal & Privacy Notices -->
+    <div class="modal-backdrop" id="legal-modal" role="dialog" aria-modal="true">
+      <div class="modal-content">
+        <button type="button" class="modal-close" aria-label="Fermer">&times;</button>
+        <h3 class="modal-title" id="modal-title"></h3>
+        <p class="modal-body" id="modal-body"></p>
+      </div>
+    </div>
+  </body>
+</html>
