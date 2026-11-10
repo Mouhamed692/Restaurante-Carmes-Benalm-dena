@@ -1,3 +1,8 @@
+/* ==========================================================================
+   Restaurante Carmesí – Haute Cuisine | Benalmádena Pueblo
+   Theme: "Carmesí & Gold" (Obsidian #0A0A0A, Carmesí #6E1A24, Gold #D4AF37)
+   Pure Vanilla CSS – 100% Standalone & Responsive
+   ========================================================================== */
 
 :root {
   --bg-primary: #0A0A0A;
@@ -49,6 +54,15 @@ body {
   color: var(--text-primary);
 }
 
+:focus-visible {
+  outline: 2px solid var(--gold-primary);
+  outline-offset: 3px;
+}
+
+body.menu-open {
+  overflow: hidden;
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
@@ -93,6 +107,19 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   .container {
     padding-left: 2rem;
     padding-right: 2rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
 
@@ -198,19 +225,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   }
 }
 
-/* Mobile Actions Wrapper (Masqué sur Desktop) */
-.mobile-actions {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-@media (min-width: 1024px) {
-  .mobile-actions {
-    display: none;
-  }
-}
-
 /* Language Switcher */
 .lang-switcher {
   display: flex;
@@ -295,6 +309,15 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   color: #FFFFFF;
 }
 
+.whatsapp-icon {
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  object-fit: cover;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
 /* Mobile Toggle */
 .mobile-toggle {
   display: flex;
@@ -305,6 +328,12 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   color: var(--text-primary);
   cursor: pointer;
   padding: 0.5rem;
+}
+
+@media (min-width: 1024px) {
+  .mobile-toggle {
+    display: none;
+  }
 }
 
 .mobile-menu-drawer {
@@ -595,6 +624,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   border: 1px solid var(--gold-border);
   overflow: hidden;
   background-color: var(--bg-card);
+}
+
+.photo-card.stagger {
+  margin-top: 0;
 }
 
 @media (min-width: 640px) {
@@ -1048,7 +1081,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   font-weight: 500;
 }
 
-/* Form */
+/* Minimalist Underline Form */
 .reservation-form {
   background: rgba(18, 16, 17, 0.7);
   border: 1px solid var(--border-subtle);
