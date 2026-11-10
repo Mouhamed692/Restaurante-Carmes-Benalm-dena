@@ -151,6 +151,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .brand-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
   font-family: var(--font-serif);
   font-size: 1.45rem;
   font-weight: 500;
@@ -162,8 +165,31 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   transition: color 0.2s ease;
 }
 
+.brand-logo-mark {
+  width: 2.4rem;
+  height: 2.4rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #f6e0a2 0%, var(--gold-primary) 38%, #8a6920 100%);
+  border: 1px solid rgba(212, 175, 55, 0.82);
+  box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.10), 0 8px 18px rgba(0, 0, 0, 0.28);
+  color: #120d0a;
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
 .brand-logo:hover {
   color: var(--gold-primary);
+}
+
+.brand-logo:hover .brand-logo-mark {
+  box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.14), 0 10px 22px rgba(212, 175, 55, 0.20);
+  transform: translateY(-1px);
 }
 
 .desktop-nav {
