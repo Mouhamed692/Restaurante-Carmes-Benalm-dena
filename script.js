@@ -580,10 +580,63 @@
     return `${year}-${month}-${day}`;
   }
 
+  function makeFallbackImage(label) {
+    const safeLabel = (label || 'Restaurante Carmesí')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
+
+    const svg = `
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="${safeLabel}">
+        <defs>
+          <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+            <stop offset="0%" stop-color="#1A0F14" />
+            <stop offset="35%" stop-color="#6E1A24" />
+            <stop offset="100%" stop-color="#0A0A0A" />
+          </linearGradient>
+        </defs>
+        <rect width="1200" height="900" fill="url(#bg)"/>
+        <circle cx="960" cy="180" r="140" fill="rgba(212,175,55,0.18)"/>
+        <circle cx="220" cy="710" r="170" fill="rgba(255,255,255,0.04)"/>
+        <rect x="120" y="120" width="960" height="660" rx="28" fill="rgba(10,10,10,0.18)" stroke="rgba(212,175,55,0.5)"/>
+        <text x="600" y="440" text-anchor="middle" fill="#F5F2EB" font-size="76" font-family="Georgia, serif" letter-spacing="10">CARMESÍ</text>
+        <text x="600" y="520" text-anchor="middle" fill="#D4AF37" font-size="32" font-family="Arial, sans-serif" letter-spacing="5">HAUTE CUISINE</text>
+        <text x="600" y="590" text-anchor="middle" fill="#F5F2EB" font-size="26" font-family="Arial, sans-serif" opacity="0.75">${safeLabel}</text>
+      </svg>
+    `;
+
+    return `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
+  }
+
+  function initImageFallbacks() {
+    const fallbackImage = (img) => {
+      const rawLabel = img.getAttribute('alt') || 'Restaurante Carmesí';
+      const source = makeFallbackImage(rawLabel);
+
+      if (!img.dataset.fallbackApplied) {
+        img.dataset.fallbackApplied = 'true';
+        img.src = source;
+      }
+    };
+
+    document.querySelectorAll('img').forEach((img) => {
+      if (!img.dataset.fallbackBound) {
+        img.dataset.fallbackBound = 'true';
+        img.addEventListener('error', () => fallbackImage(img), { once: true });
+
+        if (img.complete && img.naturalWidth === 0) {
+          fallbackImage(img);
+        }
+      }
+    });
+  }
+
   // Initialization
   document.addEventListener('DOMContentLoaded', () => {
     initHeaderScroll();
+    initScrollSpy();
     initMobileMenu();
+    initImageFallbacks();
     initLanguageSwitcher();
     initMenuFilter();
     filterMenuDishes();
@@ -606,21 +659,108 @@
     }, { passive: true });
   }
 
+  function initScrollSpy() {
+    const sections = document.querySelectorAll('main section[id]');
+    const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
+    if (!sections.length || !navLinks.length) return;
+
+    const hashToLink = new Map();
+    navLinks.forEach(link => {
+      const href = link.getAttribute('href');
+      if (!href || !href.startsWith('#')) return;
+      hashToLink.set(href.slice(1), link);
+    });
+
+    const setActiveLink = (id) => {
+      navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        const isActive = href === `#${id}`;
+        link.classList.toggle('active', isActive);
+        if (isActive) {
+          link.setAttribute('aria-current', 'page');
+        } else {
+          link.removeAttribute('aria-current');
+        }
+      });
+    };
+
+    if (!('IntersectionObserver' in window)) {
+      const firstId = sections[0]?.id;
+      if (firstId) setActiveLink(firstId);
+      return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      const visible = entries
+        .filter(entry => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+      if (visible.length) {
+        const sectionId = visible[0].target.id;
+        setActiveLink(sectionId);
+
+        if (window.location.hash !== `#${sectionId}` && 'replaceState' in history) {
+          const url = new URL(window.location.href);
+          url.hash = `#${sectionId}`;
+          history.replaceState({}, '', url);
+        }
+      }
+    }, {
+      rootMargin: '-15% 0px -55% 0px',
+      threshold: [0.2, 0.4, 0.6],
+    });
+
+    sections.forEach(section => observer.observe(section));
+
+    if (window.location.hash) {
+      const anchorId = window.location.hash.slice(1);
+      if (hashToLink.has(anchorId)) {
+        setActiveLink(anchorId);
+      }
+    }
+  }
+
   // Mobile drawer toggle
   function initMobileMenu() {
     const toggle = document.querySelector('.mobile-toggle');
     const drawer = document.querySelector('.mobile-menu-drawer');
     if (!toggle || !drawer) return;
 
+    const syncMenuState = () => {
+      const isOpen = drawer.classList.contains('open');
+      toggle.setAttribute('aria-expanded', String(isOpen));
+      document.body.classList.toggle('menu-open', isOpen);
+    };
+
     toggle.addEventListener('click', () => {
       drawer.classList.toggle('open');
+      syncMenuState();
     });
 
     drawer.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         drawer.classList.remove('open');
+        syncMenuState();
       });
     });
+
+    document.addEventListener('click', (event) => {
+      const target = event.target;
+      if (!(target instanceof Element)) return;
+      if (!drawer.contains(target) && !toggle.contains(target) && drawer.classList.contains('open')) {
+        drawer.classList.remove('open');
+        syncMenuState();
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && drawer.classList.contains('open')) {
+        drawer.classList.remove('open');
+        syncMenuState();
+      }
+    });
+
+    syncMenuState();
   }
 
   // Language switcher
