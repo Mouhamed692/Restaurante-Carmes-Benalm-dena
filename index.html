@@ -17,7 +17,7 @@
       property="og:description"
       content="L'Élégance Française, la Passion Andalouse. Dîner gastronomique sur terrasse avec vue mer par le Chef Ton Overbeek & Inge."
     />
-    <meta property="og:image" content="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=85&fm=jpg" />
+    <meta property="og:image" content="./assets/aistudio/image_61499fb3.jpg" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -26,7 +26,7 @@
       name="twitter:description"
       content="Fine French Dining with Spanish Soul à Benalmádena Pueblo, Málaga. Réservez votre table en direct."
     />
-    <meta name="twitter:image" content="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=85&fm=jpg" />
+    <meta name="twitter:image" content="./assets/aistudio/image_61499fb3.jpg" />
 
     <!-- Google Fonts: Cormorant Garamond & Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -36,10 +36,10 @@
       rel="stylesheet"
     />
 
-    <!-- Stylesheet -->
+    <!-- Pure Standalone Stylesheet -->
     <link rel="stylesheet" href="./style.css" />
 
-    <!-- Script -->
+    <!-- Pure Standalone Script -->
     <script type="module" src="./script.js"></script>
 
     <!-- Schema.org Fine Dining Restaurant Structured Data -->
@@ -49,7 +49,7 @@
         "@type": "Restaurant",
         "name": "Restaurante Carmesí",
         "description": "Haute gastronomie française mariée au terroir andalou, dirigée par le Chef Ton Overbeek et Inge au cœur de Benalmádena Pueblo.",
-        "image": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=85&fm=jpg",
+        "image": "./assets/aistudio/image_61499fb3.jpg",
         "servesCuisine": ["French", "Andalusian", "Mediterranean", "Fine Dining"],
         "priceRange": "€€€",
         "telephone": "+34 623 53 44 94",
@@ -94,7 +94,7 @@
           <a href="#acces" class="nav-link" data-i18n="nav_access">Accès</a>
         </nav>
 
-        <!-- Right: Desktop Language Switcher & Gold CTA -->
+        <!-- Right: Language Switcher & Gold CTA -->
         <div class="header-actions">
           <div class="lang-switcher" role="group" aria-label="Language selector">
             <button type="button" class="lang-btn active" data-lang="fr">FR</button>
@@ -107,9 +107,9 @@
           <a href="#reservations" class="btn btn-gold" data-i18n="nav_reserve">Réserver une Table</a>
         </div>
 
-        <!-- Mobile Actions (Masqué sur Desktop via CSS) -->
-        <div class="mobile-actions">
-          <div class="lang-switcher" role="group" aria-label="Language selector mobile">
+        <!-- Mobile Toggle Button -->
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <div class="lang-switcher" style="display: flex;" role="group" aria-label="Language selector">
             <button type="button" class="lang-btn active" data-lang="fr">FR</button>
             <span>/</span>
             <button type="button" class="lang-btn" data-lang="en">EN</button>
@@ -134,7 +134,7 @@
       <a href="#histoire" class="mobile-nav-link" data-i18n="nav_story">L'Histoire</a>
       <a href="#carte" class="mobile-nav-link" data-i18n="nav_menu">La Carte</a>
       <a href="#cave" class="mobile-nav-link" data-i18n="nav_cellar">La Cave</a>
-      <a href="#reservations" class="mobile-nav-link" data-i18n="nav_reserve">Réserver une Table</a>
+      <a href="#reservations" class="mobile-nav-link" data-i18n="nav_reserve">Réservations</a>
       <a href="#acces" class="mobile-nav-link" data-i18n="nav_access">Accès</a>
       <a href="#reservations" class="btn btn-gold" style="margin-top: 1rem;" data-i18n="nav_reserve">Réserver une Table</a>
     </div>
@@ -145,8 +145,9 @@
       <section id="hero" class="hero-section">
         <div class="hero-backdrop">
           <img
-            src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1920&q=85&fm=jpg"
+            src="./assets/aistudio/image_61499fb3.jpg"
             alt="Restaurante Carmesí Benalmádena Pueblo terrasse au crépuscule"
+            onerror="this.src='./assets/aistudio/image_b0a7f51f.jpg'"
           />
           <div class="hero-overlay"></div>
           <div class="hero-radial"></div>
@@ -185,8 +186,8 @@
 
             <!-- Call to Actions -->
             <div class="hero-cta-group">
-              <a href="#reservations" class="btn btn-gold">
-                <span data-i18n="cta_reserve">Réserver via Formulaire</span>
+              <a href="#reservations" class="btn btn-gold" data-i18n="cta_reserve">
+                <span>Réserver via Formulaire</span>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <line x1="5" y1="12" x2="19" y2="12"></line>
                   <polyline points="12 5 19 12 12 19"></polyline>
@@ -203,10 +204,7 @@
                 rel="noopener noreferrer"
                 class="btn btn-whatsapp"
               >
-                <!-- Icône WhatsApp Officielle SVG -->
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2ZM12.04 20.15C10.56 20.15 9.11 19.76 7.85 19.01L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.8 7.37 7.5 3.67 12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15ZM16.57 14.39C16.32 14.26 15.1 13.66 14.87 13.58C14.64 13.5 14.48 13.46 14.31 13.71C14.15 13.96 13.68 14.51 13.53 14.68C13.39 14.85 13.25 14.87 13 14.75C12.75 14.62 11.95 14.36 11 13.52C10.26 12.86 9.76 12.05 9.61 11.8C9.47 11.55 9.6 11.41 9.72 11.29C9.83 11.18 9.97 11 10.1 10.85C10.23 10.7 10.27 10.59 10.36 10.42C10.44 10.26 10.4 10.11 10.34 9.99C10.27 9.86 9.78 8.66 9.58 8.16C9.38 7.68 9.18 7.74 9.03 7.73H8.56C8.39 7.73 8.13 7.79 7.9 8.04C7.67 8.29 7.03 8.89 7.03 10.11C7.03 11.33 7.92 12.51 8.04 12.67C8.17 12.84 9.79 15.34 12.27 16.41C12.86 16.66 13.32 16.82 13.68 16.93C14.27 17.12 14.81 17.09 15.24 17.03C15.71 16.96 16.69 16.44 16.9 15.85C17.1 15.27 17.1 14.77 17.04 14.67C16.98 14.56 16.82 14.51 16.57 14.39Z"/>
-                </svg>
+                <img src="./assets/aistudio/image_bafe8f51.jpg" alt="WhatsApp" style="width: 18px; height: 18px; border-radius: 50%; object-fit: contain;" />
                 <span data-i18n="cta_whatsapp">Réservation Directe WhatsApp</span>
               </a>
             </div>
@@ -224,7 +222,7 @@
       <section id="histoire" class="section">
         <div class="container">
           <div class="story-grid">
-            <!-- Editorial Prose -->
+            <!-- Left: Editorial Prose -->
             <div>
               <div class="section-kicker" data-i18n="story_kicker">L'Expérience & Les Hôtes</div>
               <h2 class="section-title" data-i18n="story_title">
@@ -249,11 +247,11 @@
               </div>
             </div>
 
-            <!-- Photos Réelles / Salon & Art de la Table -->
+            <!-- Right: Photos -->
             <div class="story-photos">
               <div class="photo-card">
                 <img
-                  src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=1200&q=85&fm=jpg"
+                  src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=85&fm=jpg"
                   alt="Salle intérieure feutrée du Restaurante Carmesí"
                   loading="lazy"
                 />
@@ -262,8 +260,8 @@
 
               <div class="photo-card stagger">
                 <img
-                  src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1200&q=85&fm=jpg"
-                  alt="Table dressée aux chandelles avec vin rouge et gastronomie"
+                  src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1200&q=85&fm=jpg"
+                  alt="Table dressée aux chandelles avec vin rouge et rose"
                   loading="lazy"
                 />
                 <div class="photo-label">Art de la Table</div>
@@ -309,7 +307,7 @@
             <button type="button" class="filter-btn" data-category="desserts" data-i18n="tab_desserts">Desserts</button>
           </div>
 
-          <!-- Menu Dishes Grid -->
+          <!-- Menu Dishes Grid directly in HTML -->
           <div id="menu-dishes-container">
             <!-- Entrées -->
             <div class="category-group" data-group-category="starters">
@@ -320,7 +318,7 @@
               <div class="dish-grid three-col">
                 <article class="dish-card" data-category="starters" data-dish-id="tartare">
                   <div class="dish-img-wrap">
-                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1200&q=85&fm=jpg" alt="Steak Tartare au Couteau" loading="lazy" />
+                    <img src="./assets/aistudio/image_7240eba3.jpg" alt="Steak Tartare au Couteau" loading="lazy" onerror="this.src='./assets/aistudio/image_61499fb3.jpg'" />
                   </div>
                   <div class="dish-body">
                     <div>
@@ -340,7 +338,7 @@
 
                 <article class="dish-card" data-category="starters" data-dish-id="soupe">
                   <div class="dish-img-wrap">
-                    <img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=1200&q=85&fm=jpg" alt="Soupe de Poissons & Crustacés de Méditerranée" loading="lazy" />
+                    <img src="./assets/aistudio/image_8636c49b.jpg" alt="Soupe de Poissons & Crustacés de Méditerranée" loading="lazy" onerror="this.src='./assets/aistudio/image_61499fb3.jpg'" />
                   </div>
                   <div class="dish-body">
                     <div>
@@ -360,7 +358,7 @@
 
                 <article class="dish-card" data-category="starters" data-dish-id="scallops">
                   <div class="dish-img-wrap">
-                    <img src="https://images.unsplash.com/photo-1532550907401-a500c9a57435?auto=format&fit=crop&w=1200&q=85&fm=jpg" alt="Noix de Saint-Jacques Poêlées" loading="lazy" />
+                    <img src="./assets/aistudio/image_885cb48f.jpg" alt="Noix de Saint-Jacques Poêlées" loading="lazy" onerror="this.src='./assets/aistudio/image_61499fb3.jpg'" />
                   </div>
                   <div class="dish-body">
                     <div>
@@ -368,12 +366,12 @@
                         <h4 class="dish-name" data-dish-field="name">Noix de Saint-Jacques Poêlées</h4>
                         <span class="dish-price">24 €</span>
                       </div>
-                      <div class="dish-sub" data-dish-field="subtitle">Émulsion Champagne · Fleurs Comestibles</div>
+                      <div class="dish-sub" data-dish-field="subtitle"> Fleurs Comestibles</div>
                       <p class="dish-desc" data-dish-field="description">Saint-Jacques snackées à la nacre, beurre blanc léger au champagne brut, huile d’herbes fines et jeunes pousses.</p>
                     </div>
                     <div class="dish-pairing">
                       <span data-i18n="pairing_label">Accord suggéré</span>
-                      <span data-dish-field="pairing">Champagne Brut Réserve</span>
+                      <span data-dish-field="pairing">jus Brut Réserve</span>
                     </div>
                   </div>
                 </article>
@@ -389,7 +387,7 @@
               <div class="dish-grid">
                 <article class="dish-card" data-category="sea" data-dish-id="catch">
                   <div class="dish-img-wrap">
-                    <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=1200&q=85&fm=jpg" alt="Catch of the Day — Pêche de la Baie de Málaga" loading="lazy" />
+                    <img src="./assets/aistudio/image_dc103544.jpg" alt="Catch of the Day — Pêche de la Baie de Málaga" loading="lazy" onerror="this.src='./assets/aistudio/image_61499fb3.jpg'" />
                   </div>
                   <div class="dish-body">
                     <div>
@@ -409,7 +407,7 @@
 
                 <article class="dish-card" data-category="sea" data-dish-id="salmon">
                   <div class="dish-img-wrap">
-                    <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=1200&q=85&fm=jpg" alt="Pavé de Saumon Croustillant" loading="lazy" />
+                    <img src="./assets/aistudio/image_00afa11f.jpg" alt="Pavé de Saumon Croustillant" loading="lazy" onerror="this.src='./assets/aistudio/image_61499fb3.jpg'" />
                   </div>
                   <div class="dish-body">
                     <div>
@@ -438,7 +436,7 @@
               <div class="dish-grid">
                 <article class="dish-card" data-category="land" data-dish-id="tournedos">
                   <div class="dish-img-wrap">
-                    <img src="https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&w=1200&q=85&fm=jpg" alt="Tournedos de Bœuf aux Morilles" loading="lazy" />
+                    <img src="./assets/aistudio/image_b0a7f51f.jpg" alt="Tournedos de Bœuf aux Morilles" loading="lazy" onerror="this.src='./assets/aistudio/image_61499fb3.jpg'" />
                   </div>
                   <div class="dish-body">
                     <div>
@@ -446,7 +444,7 @@
                         <h4 class="dish-name" data-dish-field="name">Tournedos de Bœuf aux Morilles</h4>
                         <span class="dish-price">38 €</span>
                       </div>
-                      <div class="dish-sub" data-dish-field="subtitle">Jus · Asperges de Saison</div>
+                      <div class="dish-sub" data-dish-field="subtitle">Jus· Asperges de Saison</div>
                       <p class="dish-desc" data-dish-field="description">Cœur de filet de bœuf saisi au beurre clarifié, sauce réduite aux morilles sauvages et vin rouge de Rioja, garniture maraîchère.</p>
                     </div>
                     <div class="dish-pairing">
@@ -458,7 +456,7 @@
 
                 <article class="dish-card" data-category="land" data-dish-id="duck">
                   <div class="dish-img-wrap">
-                    <img src="https://images.unsplash.com/photo-1514944298352-78d12224c781?auto=format&fit=crop&w=1200&q=85&fm=jpg" alt="Magret de Canard Rôti" loading="lazy" />
+                    <img src="./assets/aistudio/image_bbd7787f.jpg" alt="Magret de Canard Rôti" loading="lazy" onerror="this.src='./assets/aistudio/image_61499fb3.jpg'" />
                   </div>
                   <div class="dish-body">
                     <div>
@@ -487,7 +485,7 @@
               <div class="dish-grid">
                 <article class="dish-card" data-category="sides" data-dish-id="asparagus">
                   <div class="dish-img-wrap">
-                    <img src="https://images.unsplash.com/photo-1515471204630-f1c5c00e1215?auto=format&fit=crop&w=1200&q=85&fm=jpg" alt="Asperges Blanches & Vertes de Saison" loading="lazy" />
+                    <img src="./assets/aistudio/image_98c1f1ad.jpg" alt="Asperges Blanches & Vertes de Saison" loading="lazy" onerror="this.src='./assets/aistudio/image_61499fb3.jpg'" />
                   </div>
                   <div class="dish-body">
                     <div>
@@ -507,7 +505,7 @@
 
                 <article class="dish-card" data-category="sides" data-dish-id="croquette">
                   <div class="dish-img-wrap">
-                    <img src="https://images.unsplash.com/photo-1541529086526-db283c563270?auto=format&fit=crop&w=1200&q=85&fm=jpg" alt="Croquette Croustillante & Mousseline Truffée" loading="lazy" />
+                    <img src="./assets/aistudio/image_484b890e.jpg" alt="Croquette Croustillante & Mousseline Truffée" loading="lazy" onerror="this.src='./assets/aistudio/image_61499fb3.jpg'" />
                   </div>
                   <div class="dish-body">
                     <div>
@@ -536,7 +534,7 @@
               <div class="dish-grid">
                 <article class="dish-card" data-category="desserts" data-dish-id="suzette">
                   <div class="dish-img-wrap">
-                    <img src="https://images.unsplash.com/photo-1519676867240-f03562e64548?auto=format&fit=crop&w=1200&q=85&fm=jpg" alt="Crêpes Suzette Flambées Traditionnelles" loading="lazy" />
+                    <img src="./assets/aistudio/image_b06af0cc.jpg" alt="Crêpes Suzette Flambées Traditionnelles" loading="lazy" onerror="this.src='./assets/aistudio/image_61499fb3.jpg'" />
                   </div>
                   <div class="dish-body">
                     <div>
@@ -556,7 +554,7 @@
 
                 <article class="dish-card" data-category="desserts" data-dish-id="moelleux">
                   <div class="dish-img-wrap">
-                    <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=1200&q=85&fm=jpg" alt="Moelleux au Chocolat Grand Cru" loading="lazy" />
+                    <img src="./assets/aistudio/image_b9b380f4.jpg" alt="Moelleux au Chocolat Grand Cru" loading="lazy" onerror="this.src='./assets/aistudio/image_61499fb3.jpg'" />
                   </div>
                   <div class="dish-body">
                     <div>
@@ -597,10 +595,10 @@
       <section id="cave" class="section">
         <div class="container">
           <div class="cellar-grid">
-            <!-- Left: Photo Sommelier -->
+            <!-- Left: Photo Card -->
             <div class="cellar-photo">
               <img
-                src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=1200&q=85&fm=jpg"
+                src="./assets/aistudio/image_98c1f1ad.jpg"
                 alt="Accords mets et vins sur la terrasse du Restaurante Carmesí"
                 loading="lazy"
               />
@@ -624,11 +622,11 @@
 
               <div class="wine-list">
                 <!-- Wine 1 -->
-                <div class="wine-item" data-wine-id="wine-1">
+                <div class="wine-item">
                   <div>
-                    <div class="wine-region" data-wine-field="region">DOCa Rioja · España · 2016 · Rouge</div>
-                    <h3 class="wine-name" data-wine-field="name">Marqués de Murrieta Castillo Ygay / Reserva</h3>
-                    <p class="wine-notes" data-wine-field="notes">Notes de cerise noire, cèdre, truffe et épices douces. Idéal avec le Tournedos aux Morilles.</p>
+                    <div class="wine-region">DOCa Rioja · España · 2016 · Rouge</div>
+                    <h3 class="wine-name">Marqués de Murrieta Castillo Ygay / Reserva</h3>
+                    <p class="wine-notes">Notes de cerise noire, cèdre, truffe et épices douces. Idéal avec le Tournedos aux Morilles.</p>
                   </div>
                   <div class="wine-prices">
                     <div>Bouteille <span>68 €</span></div>
@@ -636,11 +634,11 @@
                 </div>
 
                 <!-- Wine 2 -->
-                <div class="wine-item" data-wine-id="wine-2">
+                <div class="wine-item">
                   <div>
-                    <div class="wine-region" data-wine-field="region">DO Ribera del Duero · España · 2019 · Rouge</div>
-                    <h3 class="wine-name" data-wine-field="name">Pago de Carraovejas Crianza</h3>
-                    <p class="wine-notes" data-wine-field="notes">Velouté, profond et structuré, aux arômes de mûre confite et cacao. Sublime le Magret de Canard.</p>
+                    <div class="wine-region">DO Ribera del Duero · España · 2019 · Rouge</div>
+                    <h3 class="wine-name">Pago de Carraovejas Crianza</h3>
+                    <p class="wine-notes">Velouté, profond et structuré, aux arômes de mûre confite et cacao. Sublime le Magret de Canard.</p>
                   </div>
                   <div class="wine-prices">
                     <div>Verre <span>14 €</span></div>
@@ -649,11 +647,11 @@
                 </div>
 
                 <!-- Wine 3 -->
-                <div class="wine-item" data-wine-id="wine-3">
+                <div class="wine-item">
                   <div>
-                    <div class="wine-region" data-wine-field="region">Bourgogne · France · 2021 · Blanc (100% Chardonnay)</div>
-                    <h3 class="wine-name" data-wine-field="name">Domaine William Fèvre Chablis 1er Cru</h3>
-                    <p class="wine-notes" data-wine-field="notes">Minéralité cristalline, fleurs blanches et agrumes frais. Accompagne la Pêche de la Baie de Málaga.</p>
+                    <div class="wine-region">Bourgogne · France · 2021 · Blanc (100% Chardonnay)</div>
+                    <h3 class="wine-name">Domaine William Fèvre Chablis 1er Cru</h3>
+                    <p class="wine-notes">Minéralité cristalline, fleurs blanches et agrumes frais. Accompagne la Pêche de la Baie de Málaga.</p>
                   </div>
                   <div class="wine-prices">
                     <div>Verre <span>15 €</span></div>
@@ -662,11 +660,11 @@
                 </div>
 
                 <!-- Wine 4 -->
-                <div class="wine-item" data-wine-id="wine-4">
+                <div class="wine-item">
                   <div>
-                    <div class="wine-region" data-wine-field="region">Champagne · France · Brut Réserve</div>
-                    <h3 class="wine-name" data-wine-field="name">Billecart-Salmon Brut Réserve</h3>
-                    <p class="wine-notes" data-wine-field="notes">Bulle aérienne, poire fraîche et brioche fine. L’ouverture parfaite sur notre terrasse avec vue mer.</p>
+                    <div class="wine-region">Champagne · France · Brut Réserve</div>
+                    <h3 class="wine-name">Billecart-Salmon Brut Réserve</h3>
+                    <p class="wine-notes">Bulle aérienne, poire fraîche et brioche fine. L’ouverture parfaite sur notre terrasse avec vue mer.</p>
                   </div>
                   <div class="wine-prices">
                     <div>Coupe <span>16 €</span></div>
@@ -792,29 +790,25 @@
 
               <!-- Success Box -->
               <div class="form-success-box" id="form-success-box">
-                <div style="color: var(--whatsapp); font-weight: 600; display: flex; align-items: center; gap: 0.5rem;">
+                <div style="color: var(--whatsapp); font-weight: 600; display: flex; align-items: center; gap: 0.5rem;" data-i18n="succ_title">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
                     <polyline points="22 4 12 14.01 9 11.01"></polyline>
                   </svg>
-                  <span data-i18n="succ_title">Votre demande est prête sur WhatsApp</span>
+                  Votre demande est prête sur WhatsApp
                 </div>
                 <p style="font-size: 0.8rem; color: var(--text-muted);" data-i18n="succ_desc">
                   Si la fenêtre WhatsApp ne s’est pas ouverte automatiquement, cliquez sur le bouton ci-dessous :
                 </p>
                 <a href="#" id="succ-open-btn" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp" style="display: inline-flex; align-self: flex-start; padding: 0.6rem 1.25rem;">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2ZM12.04 20.15C10.56 20.15 9.11 19.76 7.85 19.01L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.8 7.37 7.5 3.67 12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15ZM16.57 14.39C16.32 14.26 15.1 13.66 14.87 13.58C14.64 13.5 14.48 13.46 14.31 13.71C14.15 13.96 13.68 14.51 13.53 14.68C13.39 14.85 13.25 14.87 13 14.75C12.75 14.62 11.95 14.36 11 13.52C10.26 12.86 9.76 12.05 9.61 11.8C9.47 11.55 9.6 11.41 9.72 11.29C9.83 11.18 9.97 11 10.1 10.85C10.23 10.7 10.27 10.59 10.36 10.42C10.44 10.26 10.4 10.11 10.34 9.99C10.27 9.86 9.78 8.66 9.58 8.16C9.38 7.68 9.18 7.74 9.03 7.73H8.56C8.39 7.73 8.13 7.79 7.9 8.04C7.67 8.29 7.03 8.89 7.03 10.11C7.03 11.33 7.92 12.51 8.04 12.67C8.17 12.84 9.79 15.34 12.27 16.41C12.86 16.66 13.32 16.82 13.68 16.93C14.27 17.12 14.81 17.09 15.24 17.03C15.71 16.96 16.69 16.44 16.9 15.85C17.1 15.27 17.1 14.77 17.04 14.67C16.98 14.56 16.82 14.51 16.57 14.39Z"/>
-                  </svg>
+                  <img src="./assets/aistudio/image_bafe8f51.jpg" alt="WhatsApp" style="width: 18px; height: 18px; border-radius: 50%; object-fit: contain;" />
                   <span data-i18n="succ_open">Ouvrir WhatsApp maintenant</span>
                 </a>
               </div>
 
               <!-- Submit Button -->
               <button type="submit" class="btn btn-gold" style="width: 100%; padding: 1.1rem; font-size: 0.8rem;">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2ZM12.04 20.15C10.56 20.15 9.11 19.76 7.85 19.01L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.8 7.37 7.5 3.67 12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15ZM16.57 14.39C16.32 14.26 15.1 13.66 14.87 13.58C14.64 13.5 14.48 13.46 14.31 13.71C14.15 13.96 13.68 14.51 13.53 14.68C13.39 14.85 13.25 14.87 13 14.75C12.75 14.62 11.95 14.36 11 13.52C10.26 12.86 9.76 12.05 9.61 11.8C9.47 11.55 9.6 11.41 9.72 11.29C9.83 11.18 9.97 11 10.1 10.85C10.23 10.7 10.27 10.59 10.36 10.42C10.44 10.26 10.4 10.11 10.34 9.99C10.27 9.86 9.78 8.66 9.58 8.16C9.38 7.68 9.18 7.74 9.03 7.73H8.56C8.39 7.73 8.13 7.79 7.9 8.04C7.67 8.29 7.03 8.89 7.03 10.11C7.03 11.33 7.92 12.51 8.04 12.67C8.17 12.84 9.79 15.34 12.27 16.41C12.86 16.66 13.32 16.82 13.68 16.93C14.27 17.12 14.81 17.09 15.24 17.03C15.71 16.96 16.69 16.44 16.9 15.85C17.1 15.27 17.1 14.77 17.04 14.67C16.98 14.56 16.82 14.51 16.57 14.39Z"/>
-                </svg>
+                <img src="./assets/aistudio/image_bafe8f51.jpg" alt="WhatsApp" style="width: 18px; height: 18px; border-radius: 50%; object-fit: contain;" />
                 <span data-i18n="form_submit">Envoyer ma demande via WhatsApp</span>
               </button>
             </form>
@@ -875,14 +869,12 @@
                 class="btn btn-whatsapp"
                 style="margin-top: 0.5rem;"
               >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2ZM12.04 20.15C10.56 20.15 9.11 19.76 7.85 19.01L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.8 7.37 7.5 3.67 12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15ZM16.57 14.39C16.32 14.26 15.1 13.66 14.87 13.58C14.64 13.5 14.48 13.46 14.31 13.71C14.15 13.96 13.68 14.51 13.53 14.68C13.39 14.85 13.25 14.87 13 14.75C12.75 14.62 11.95 14.36 11 13.52C10.26 12.86 9.76 12.05 9.61 11.8C9.47 11.55 9.6 11.41 9.72 11.29C9.83 11.18 9.97 11 10.1 10.85C10.23 10.7 10.27 10.59 10.36 10.42C10.44 10.26 10.4 10.11 10.34 9.99C10.27 9.86 9.78 8.66 9.58 8.16C9.38 7.68 9.18 7.74 9.03 7.73H8.56C8.39 7.73 8.13 7.79 7.9 8.04C7.67 8.29 7.03 8.89 7.03 10.11C7.03 11.33 7.92 12.51 8.04 12.67C8.17 12.84 9.79 15.34 12.27 16.41C12.86 16.66 13.32 16.82 13.68 16.93C14.27 17.12 14.81 17.09 15.24 17.03C15.71 16.96 16.69 16.44 16.9 15.85C17.1 15.27 17.1 14.77 17.04 14.67C16.98 14.56 16.82 14.51 16.57 14.39Z"/>
-                </svg>
+                <img src="./assets/aistudio/image_bafe8f51.jpg" alt="WhatsApp" style="width: 18px; height: 18px; border-radius: 50%; object-fit: contain;" />
                 <span data-i18n="contact_wa_btn">Nous contacter pour une question sur WhatsApp</span>
               </a>
             </div>
 
-            <!-- Architectural Map Card -->
+            <!-- Right Architectural Map Card -->
             <div class="map-card">
               <div class="map-card-pattern"></div>
               <div style="font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold-champagne); z-index: 2;">
@@ -950,11 +942,11 @@
       class="floating-whatsapp"
       aria-label="Contacter sur WhatsApp"
     >
-      <div class="floating-whatsapp-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2ZM12.04 20.15C10.56 20.15 9.11 19.76 7.85 19.01L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.8 7.37 7.5 3.67 12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15ZM16.57 14.39C16.32 14.26 15.1 13.66 14.87 13.58C14.64 13.5 14.48 13.46 14.31 13.71C14.15 13.96 13.68 14.51 13.53 14.68C13.39 14.85 13.25 14.87 13 14.75C12.75 14.62 11.95 14.36 11 13.52C10.26 12.86 9.76 12.05 9.61 11.8C9.47 11.55 9.6 11.41 9.72 11.29C9.83 11.18 9.97 11 10.1 10.85C10.23 10.7 10.27 10.59 10.36 10.42C10.44 10.26 10.4 10.11 10.34 9.99C10.27 9.86 9.78 8.66 9.58 8.16C9.38 7.68 9.18 7.74 9.03 7.73H8.56C8.39 7.73 8.13 7.79 7.9 8.04C7.67 8.29 7.03 8.89 7.03 10.11C7.03 11.33 7.92 12.51 8.04 12.67C8.17 12.84 9.79 15.34 12.27 16.41C12.86 16.66 13.32 16.82 13.68 16.93C14.27 17.12 14.81 17.09 15.24 17.03C15.71 16.96 16.69 16.44 16.9 15.85C17.1 15.27 17.1 14.77 17.04 14.67C16.98 14.56 16.82 14.51 16.57 14.39Z"/>
-        </svg>
-      </div>
+      <img
+        src="./assets/aistudio/image_bafe8f51.jpg"
+        alt="WhatsApp"
+        class="floating-whatsapp-img"
+      />
       <span class="floating-whatsapp-text">WhatsApp</span>
     </a>
 
